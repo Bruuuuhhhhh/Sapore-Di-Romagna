@@ -1,0 +1,75 @@
+@page "/"
+@inject SaporeDiRomagna.Data.AppState State
+
+<h1 class="mb-4">Generale</h1>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="card-metric">
+            <div class="card-title-metric">Totale Vendite (€)</div>
+            <div class="card-value-metric">
+                @State.Documenti.Where(d => d.TipoDocumento == DocumentType.FatturaImmediata || d.TipoDocumento == DocumentType.FatturaDifferita).Sum(d => d.TotaleFattura).ToString("C")
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card-metric accent">
+            <div class="card-title-metric">Totale Documenti</div>
+            <div class="card-value-metric">
+                @State.Documenti.Count
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card-metric">
+            <div class="card-title-metric">Coperti Oggi (P | C)</div>
+            <div class="card-value-metric">
+                @{
+                    var today = DateTime.Today;
+                    var lunch = State.Prenotazioni.Where(p => p.Data.Date == today && p.Servizio == SaporeDiRomagna.Data.ServizioTipo.Pranzo).Sum(p => p.Posti);
+                    var dinner = State.Prenotazioni.Where(p => p.Data.Date == today && p.Servizio == SaporeDiRomagna.Data.ServizioTipo.Cena).Sum(p => p.Posti);
+                }
+                @lunch | @dinner
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card-metric">
+            <div class="card-title-metric">Fatture da Saldare</div>
+            <div class="card-value-metric">
+                @State.Documenti.Count(d => !d.StatusPagato && (d.TipoDocumento == DocumentType.FatturaImmediata || d.TipoDocumento == DocumentType.FatturaDifferita))
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <h4 class="mb-3">Attività Recenti</h4>
+        <div class="table-glass">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Documento</th>
+                        <th>Importo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var doc in State.Documenti.OrderByDescending(d => d.Data).Take(5))
+                    {
+                        <tr>
+                            <td>@doc.Data.ToShortDateString()</td>
+                            <td>@doc.TipoDocumento (@doc.NumeroDocumento)</td>
+                            <td>@doc.TotaleFattura.ToString("C")</td>
+                        </tr>
+                    }
+                    @if (!State.Documenti.Any())
+                    {
+                        <tr><td colspan="3" class="text-center text-muted">Nessuna attività registrata.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

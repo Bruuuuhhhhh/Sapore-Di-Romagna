@@ -1,0 +1,87 @@
+@inherits LayoutComponentBase
+@implements IDisposable
+@inject SaporeDiRomagna.Data.AppState State
+@inject NavigationManager NavManager
+
+@if (!State.IsLoggedIn)
+{
+    @Body
+}
+else
+{
+    <div class="page">
+        <div class="sidebar @(sidebarOpen ? "open" : "")">
+            <div class="brand" style="background-color: var(--bg-color);">
+                <img src="/img/logo.png" alt="Sapore di Romagna" style="max-width: 100%; height: auto;" />
+            </div>
+            <NavMenu />
+        </div>
+
+        @if (sidebarOpen)
+        {
+            <div class="sidebar-overlay d-lg-none" @onclick="ToggleSidebar"></div>
+        }
+
+        <main>
+            <div class="top-row px-4 d-flex align-items-center">
+                <button class="btn btn-sm btn-outline-secondary d-lg-none me-auto" @onclick="ToggleSidebar">
+                    <i class="bi bi-list fs-4"></i>
+                </button>
+                <div class="d-flex align-items-center ms-auto">
+                    <span class="me-3 d-none d-sm-inline text-muted">Admin: info@saporediromagna.it</span>
+                    <button class="btn btn-sm btn-outline-danger" @onclick="Logout">Logout</button>
+                </div>
+            </div>
+
+            <article class="content">
+                @Body
+            </article>
+        </main>
+    </div>
+}
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
+
+@code {
+    private bool sidebarOpen = false;
+
+
+    private void ToggleSidebar()
+    {
+        sidebarOpen = !sidebarOpen;
+    }
+
+    protected override void OnInitialized()
+    {
+        NavManager.LocationChanged += OnLocationChanged;
+
+        if (!State.IsLoggedIn && !NavManager.Uri.EndsWith("/login", StringComparison.OrdinalIgnoreCase))
+        {
+            NavManager.NavigateTo("/login");
+        }
+    }
+
+    private void OnLocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
+    {
+        if (sidebarOpen)
+        {
+            sidebarOpen = false;
+            InvokeAsync(StateHasChanged);
+        }
+    }
+
+    public void Dispose()
+    {
+        NavManager.LocationChanged -= OnLocationChanged;
+    }
+
+    private void Logout()
+    {
+        State.IsLoggedIn = false;
+        NavManager.NavigateTo("/login");
+    }
+}

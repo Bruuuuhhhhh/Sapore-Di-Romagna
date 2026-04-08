@@ -1,0 +1,18 @@
+/* Pulizia stili default Blazor - Tutto gestito in app.css */
+
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Rimosso sidebar e top-row stili default che entravano in conflitto */
+@media (min-width: 641px) {
+    .page {
+        flex-direction: row;
+    }
+}

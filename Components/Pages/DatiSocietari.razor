@@ -1,0 +1,151 @@
+@page "/dati-societari"
+@using Microsoft.AspNetCore.Hosting
+@using System.IO
+@inject SaporeDiRomagna.Data.AppState State
+@inject IWebHostEnvironment Env
+@rendermode InteractiveServer
+
+<h1 class="mb-4">Dati Societari</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <EditForm Model="State.DatiAziendali" OnValidSubmit="SalvaDati" FormName="DatiAziendaliForm">
+                    <h5 class="mb-4" style="color: var(--primary-color);"><i class="bi bi-building"></i> Informazioni Societarie</h5>
+                    
+                    @if(mostraMessaggioSalvato)
+                    {
+                        <div class="alert alert-success py-2">Dati aziendali salvati correttamente!</div>
+                    }
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Ragione Sociale <span class="badge bg-secondary">Fisso</span></label>
+                            <InputText class="form-control bg-light" @bind-Value="State.DatiAziendali.RagioneSociale" disabled />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Brand Name / Insegna</label>
+                            <InputText class="form-control" @bind-Value="State.DatiAziendali.BrandName" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Partita IVA / Codice Fiscale <span class="badge bg-secondary">Fisso</span></label>
+                            <InputText class="form-control bg-light" @bind-Value="State.DatiAziendali.PartitaIva" disabled />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Indirizzo Sede Legale</label>
+                            <InputText class="form-control" @bind-Value="State.DatiAziendali.Indirizzo" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Telefono Aziendale</label>
+                            <InputText class="form-control" @bind-Value="State.DatiAziendali.Telefono" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">E-mail / PEC</label>
+                            <InputText class="form-control" @bind-Value="State.DatiAziendali.PEC" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Codice Destinatario (SDI)</label>
+                            <InputText class="form-control" @bind-Value="State.DatiAziendali.CodiceSDI" />
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label text-muted small">Coordinate Bancarie (IBAN)</label>
+                            <InputText class="form-control" @bind-Value="State.DatiAziendali.IBAN" />
+                        </div>
+                        
+                        <div class="col-12 text-end mt-4">
+                            <button type="submit" class="btn btn-primary px-4"><i class="bi bi-save me-2"></i> Salva Modifiche</button>
+                        </div>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 mb-4 bg-white">
+            <div class="card-header bg-transparent border-0 pt-4 pb-0 text-center">
+                <h6 style="color: var(--secondary-color); font-weight: 600;">
+                    <i class="bi bi-image"></i> Logo Aziendale Attuale
+                </h6>
+            </div>
+            <div class="card-body p-4 text-center">
+                
+                <!-- Anteprima Logo -->
+                <div class="mb-4 p-3 rounded d-flex align-items-center justify-content-center" style="background-color: var(--bg-color); border: 2px dashed #cdcdcd; min-height: 150px;">
+                    <img src="@logoUrl" alt="Anteprima Logo Aziendale" style="max-width:350px; max-height:180px; object-fit: contain;" />
+                </div>
+                
+                <hr />
+                
+                <!-- Azione di Caricamento -->
+                <h6 class="mt-3 mb-2" style="font-weight: 500;">Vuoi cambiare il logo?</h6>
+                <p class="small text-muted mb-3">Carica una nuova immagine. L'anteprima si aggiornerà in tempo reale e il logo verrà applicato a tutto il gestionale (incluso le fatture).</p>
+                
+                <div class="d-grid position-relative">
+                    <label class="btn btn-outline-primary fw-medium" for="logoUploadFile" style="cursor: pointer;">
+                        <i class="bi bi-cloud-arrow-up me-2"></i> Scegli una nuova immagine
+                    </label>
+                    <InputFile id="logoUploadFile" OnChange="HandleLogoUpload" class="d-none" accept="image/png, image/jpeg" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool mostraMessaggioSalvato = false;
+    private string logoUrl = "/img/logo.png";
+
+    protected override void OnInitialized()
+    {
+        // Forza la riscrittura della cache Singleton se ha ritenuto i vecchi dati
+        if (State.DatiAziendali.PartitaIva == "01234567890" || State.DatiAziendali.PartitaIva == "01234567891")
+        {
+            State.DatiAziendali.RagioneSociale = "Sapore di Romagna S.r.l.";
+            State.DatiAziendali.BrandName = "Sapore di Romagna - Cucina & Pizzeria km 0";
+            State.DatiAziendali.PartitaIva = "IT08429310401";
+            State.DatiAziendali.Indirizzo = "Corso Sozzi, 24 – 47521 Cesena (FC)";
+            State.DatiAziendali.Telefono = "0547 123456";
+            State.DatiAziendali.PEC = "saporediromagna.srl@gmail.com";
+            State.DatiAziendali.CodiceSDI = "4SUS67F";
+            State.DatiAziendali.IBAN = "IT02A0123451234512345678901";
+        }
+    }
+
+    private async Task HandleLogoUpload(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            var directoryPath = Path.Combine(Env.WebRootPath, "img");
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            var filePath = Path.Combine(directoryPath, "logo.png");
+            // Max allowed size 5MB
+            await using FileStream fs = new(filePath, FileMode.Create);
+            await e.File.OpenReadStream(maxAllowedSize: 5242880).CopyToAsync(fs);
+            
+            // Bypass the browser cache to show the new logo immediately
+            logoUrl = $"/img/logo.png?v={Guid.NewGuid()}";
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Errore Upload Immagine: {ex.Message}");
+        }
+    }
+
+    private async Task SalvaDati()
+    {
+        mostraMessaggioSalvato = true;
+        
+        // Simulo un tempo di caricamento del salvataggio nel database vero e proprio
+        await Task.Delay(2000);
+        
+        mostraMessaggioSalvato = false;
+        StateHasChanged(); // Aggiorna l'interfaccia rimuovendo il banner
+    }
+}

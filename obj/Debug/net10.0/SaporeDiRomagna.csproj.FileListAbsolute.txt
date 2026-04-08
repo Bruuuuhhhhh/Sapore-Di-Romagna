@@ -1,0 +1,510 @@
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/EmbeddedAttribute.cs
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/ValidatableTypeAttribute.cs
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/rpswa.dswa.cache.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.AssemblyInfoInputs.cache
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.AssemblyInfo.cs
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.csproj.CoreCompileInputs.cache
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/diego.zandoli/Desktop/sapore di romagna/bin/Debug/net10.0/appsettings.Development.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/bin/Debug/net10.0/appsettings.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.staticwebassets.runtime.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.staticwebassets.endpoints.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.exe
+C:/Users/diego.zandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.deps.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.runtimeconfig.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.dll
+C:/Users/diego.zandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.pdb
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/rjimswa.dswa.cache.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/scopedcss/Components/Layout/MainLayout.razor.rz.scp.css
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/scopedcss/Components/Layout/ReconnectModal.razor.rz.scp.css
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/scopedcss/bundle/SaporeDiRomagna.styles.css
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/scopedcss/projectbundle/SaporeDiRomagna.bundle.scp.css
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/h3u6zvnu1b-{0}-pjprbw5znh-pjprbw5znh.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/3vc3xwgrfp-{0}-bqjiyaj88i-bqjiyaj88i.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/b19lgrg4ex-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/qyuadhfs37-{0}-erw9l3u2r3-erw9l3u2r3.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/2p2u79l9ex-{0}-aexeepp0ev-aexeepp0ev.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/fa1vi79w9i-{0}-d7shbmvgxk-d7shbmvgxk.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/4fk59iponl-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/3nd1bp2zvs-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/fa7rs4ir6z-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/s50thkyxek-{0}-ub07r2b239-ub07r2b239.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/c9uw3k1n3y-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/lglzypwq38-{0}-b7pk76d08c-b7pk76d08c.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/pg6yxlq07w-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/euwesq0jj5-{0}-rzd6atqjts-rzd6atqjts.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/xle54z68ft-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/9steopjj3a-{0}-dxx9fxp4il-dxx9fxp4il.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/fawfmb6r6e-{0}-jd9uben2k1-jd9uben2k1.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/f32jhmum0h-{0}-khv3u5hwcm-khv3u5hwcm.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/m7un3eb5zp-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/c9rj4hj9kv-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/n3vag4xc67-{0}-c2oey78nd0-c2oey78nd0.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/wg52co68qy-{0}-tdbxkamptv-tdbxkamptv.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/flxkcmbe54-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/uq3e99o5fq-{0}-06098lyss8-06098lyss8.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/o3m1sou40q-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/myqgaycap1-{0}-s35ty4nyc5-s35ty4nyc5.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/8igbsuw8di-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/2hbbzvc4jo-{0}-46ein0sx1k-46ein0sx1k.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/ytk5hy3ulg-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/vfdmw6j0l0-{0}-37tfw0ft22-37tfw0ft22.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/15eoqro64a-{0}-hrwsygsryq-hrwsygsryq.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/iwm54ti2l6-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/j52o0zueks-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/qs2i1t56uy-{0}-6cfz1n2cew-6cfz1n2cew.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/6olekccmbl-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/ktk6pmyatq-{0}-493y06b0oq-493y06b0oq.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/lsb6ok47rm-{0}-iovd86k7lj-iovd86k7lj.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/5ja34jxusa-{0}-vr1egmr9el-vr1egmr9el.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/yuaa0bu543-{0}-kbrnm935zg-kbrnm935zg.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/5cxj6sdo1r-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/s6xth8cudq-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/2zajx69wm8-{0}-notf2xhcfb-notf2xhcfb.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/lc08wxhbsl-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/tib2ft7uud-{0}-63fj8s7r0e-63fj8s7r0e.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/0t9kyn1rut-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/8hudg9r7ef-{0}-13ja33weya-13ja33weya.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/ag9c24yyld-{0}-wmp8iwak4q-wmp8iwak4q.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/yw6mrdr74y-{0}-2lgipwaf5j-2lgipwaf5j.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/r8srorcfkw-{0}-0w9fz38gel-0w9fz38gel.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/m7lj65epcg-{0}-0w9fz38gel-0w9fz38gel.gz
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/staticwebassets.build.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/staticwebassets.build.json.cache
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/staticwebassets.development.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/swae.build.ex.cache
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.dll
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/refint/SaporeDiRomagna.dll
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.pdb
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.genruntimeconfig.cache
+C:/Users/diego.zandoli/Desktop/sapore di romagna/obj/Debug/net10.0/ref/SaporeDiRomagna.dll
+/Users/diegozandoli/Desktop/sapore di romagna/bin/Debug/net10.0/appsettings.Development.json
+/Users/diegozandoli/Desktop/sapore di romagna/bin/Debug/net10.0/appsettings.json
+/Users/diegozandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.staticwebassets.runtime.json
+/Users/diegozandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.staticwebassets.endpoints.json
+/Users/diegozandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna
+/Users/diegozandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.deps.json
+/Users/diegozandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.runtimeconfig.json
+/Users/diegozandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.dll
+/Users/diegozandoli/Desktop/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.pdb
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/EmbeddedAttribute.cs
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/ValidatableTypeAttribute.cs
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/rpswa.dswa.cache.json
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.GeneratedMSBuildEditorConfig.editorconfig
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.AssemblyInfoInputs.cache
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.AssemblyInfo.cs
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.csproj.CoreCompileInputs.cache
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.MvcApplicationPartsAssemblyInfo.cache
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/rjimswa.dswa.cache.json
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/scopedcss/Components/Layout/MainLayout.razor.rz.scp.css
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/scopedcss/Components/Layout/ReconnectModal.razor.rz.scp.css
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/scopedcss/bundle/SaporeDiRomagna.styles.css
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/scopedcss/projectbundle/SaporeDiRomagna.bundle.scp.css
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/3vc3xwgrfp-{0}-bqjiyaj88i-bqjiyaj88i.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/b19lgrg4ex-{0}-c2jlpeoesf-c2jlpeoesf.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/qyuadhfs37-{0}-erw9l3u2r3-erw9l3u2r3.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/2p2u79l9ex-{0}-aexeepp0ev-aexeepp0ev.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/fa1vi79w9i-{0}-d7shbmvgxk-d7shbmvgxk.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/4fk59iponl-{0}-ausgxo2sd3-ausgxo2sd3.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/3nd1bp2zvs-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/fa7rs4ir6z-{0}-cosvhxvwiu-cosvhxvwiu.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/s50thkyxek-{0}-ub07r2b239-ub07r2b239.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/c9uw3k1n3y-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/lglzypwq38-{0}-b7pk76d08c-b7pk76d08c.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/pg6yxlq07w-{0}-fsbi9cje9m-fsbi9cje9m.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/euwesq0jj5-{0}-rzd6atqjts-rzd6atqjts.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/xle54z68ft-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/9steopjj3a-{0}-dxx9fxp4il-dxx9fxp4il.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/fawfmb6r6e-{0}-jd9uben2k1-jd9uben2k1.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/f32jhmum0h-{0}-khv3u5hwcm-khv3u5hwcm.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/m7un3eb5zp-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/c9rj4hj9kv-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/n3vag4xc67-{0}-c2oey78nd0-c2oey78nd0.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/wg52co68qy-{0}-tdbxkamptv-tdbxkamptv.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/flxkcmbe54-{0}-j5mq2jizvt-j5mq2jizvt.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/uq3e99o5fq-{0}-06098lyss8-06098lyss8.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/o3m1sou40q-{0}-nvvlpmu67g-nvvlpmu67g.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/myqgaycap1-{0}-s35ty4nyc5-s35ty4nyc5.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/8igbsuw8di-{0}-pj5nd1wqec-pj5nd1wqec.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/2hbbzvc4jo-{0}-46ein0sx1k-46ein0sx1k.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/ytk5hy3ulg-{0}-v0zj4ognzu-v0zj4ognzu.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/vfdmw6j0l0-{0}-37tfw0ft22-37tfw0ft22.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/15eoqro64a-{0}-hrwsygsryq-hrwsygsryq.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/iwm54ti2l6-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/j52o0zueks-{0}-ft3s53vfgj-ft3s53vfgj.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/qs2i1t56uy-{0}-6cfz1n2cew-6cfz1n2cew.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/6olekccmbl-{0}-6pdc2jztkx-6pdc2jztkx.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/ktk6pmyatq-{0}-493y06b0oq-493y06b0oq.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/lsb6ok47rm-{0}-iovd86k7lj-iovd86k7lj.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/5ja34jxusa-{0}-vr1egmr9el-vr1egmr9el.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/yuaa0bu543-{0}-kbrnm935zg-kbrnm935zg.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/5cxj6sdo1r-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/s6xth8cudq-{0}-y7v9cxd14o-y7v9cxd14o.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/2zajx69wm8-{0}-notf2xhcfb-notf2xhcfb.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/lc08wxhbsl-{0}-h1s4sie4z3-h1s4sie4z3.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/tib2ft7uud-{0}-63fj8s7r0e-63fj8s7r0e.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/0t9kyn1rut-{0}-0j3bgjxly4-0j3bgjxly4.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/8hudg9r7ef-{0}-13ja33weya-13ja33weya.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/ag9c24yyld-{0}-2i0r6wwb69-2i0r6wwb69.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/yw6mrdr74y-{0}-iz83ucvm53-iz83ucvm53.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/r8srorcfkw-{0}-p0uwn4i1cd-p0uwn4i1cd.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/m7lj65epcg-{0}-p0uwn4i1cd-p0uwn4i1cd.gz
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/staticwebassets.build.json
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/staticwebassets.build.json.cache
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/staticwebassets.development.json
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/swae.build.ex.cache
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.dll
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/refint/SaporeDiRomagna.dll
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.pdb
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.genruntimeconfig.cache
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/ref/SaporeDiRomagna.dll
+/Users/diegozandoli/Desktop/sapore di romagna/obj/Debug/net10.0/compressed/h3u6zvnu1b-{0}-ze5f30m9ku-ze5f30m9ku.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/bin/Debug/net10.0/appsettings.Development.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/bin/Debug/net10.0/appsettings.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.staticwebassets.runtime.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.staticwebassets.endpoints.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.exe
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.deps.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.runtimeconfig.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.dll
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/bin/Debug/net10.0/SaporeDiRomagna.pdb
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/EmbeddedAttribute.cs
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/ValidatableTypeAttribute.cs
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/rpswa.dswa.cache.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.AssemblyInfoInputs.cache
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.AssemblyInfo.cs
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.csproj.CoreCompileInputs.cache
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/rjimswa.dswa.cache.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/scopedcss/Components/Layout/MainLayout.razor.rz.scp.css
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/scopedcss/Components/Layout/ReconnectModal.razor.rz.scp.css
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/scopedcss/bundle/SaporeDiRomagna.styles.css
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/scopedcss/projectbundle/SaporeDiRomagna.bundle.scp.css
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/3vc3xwgrfp-{0}-bqjiyaj88i-bqjiyaj88i.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/b19lgrg4ex-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/qyuadhfs37-{0}-erw9l3u2r3-erw9l3u2r3.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/2p2u79l9ex-{0}-aexeepp0ev-aexeepp0ev.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/fa1vi79w9i-{0}-d7shbmvgxk-d7shbmvgxk.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/4fk59iponl-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/3nd1bp2zvs-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/fa7rs4ir6z-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/s50thkyxek-{0}-ub07r2b239-ub07r2b239.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/c9uw3k1n3y-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/lglzypwq38-{0}-b7pk76d08c-b7pk76d08c.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/pg6yxlq07w-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/euwesq0jj5-{0}-rzd6atqjts-rzd6atqjts.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/xle54z68ft-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/9steopjj3a-{0}-dxx9fxp4il-dxx9fxp4il.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/fawfmb6r6e-{0}-jd9uben2k1-jd9uben2k1.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/f32jhmum0h-{0}-khv3u5hwcm-khv3u5hwcm.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/m7un3eb5zp-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/c9rj4hj9kv-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/n3vag4xc67-{0}-c2oey78nd0-c2oey78nd0.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/wg52co68qy-{0}-tdbxkamptv-tdbxkamptv.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/flxkcmbe54-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/uq3e99o5fq-{0}-06098lyss8-06098lyss8.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/o3m1sou40q-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/myqgaycap1-{0}-s35ty4nyc5-s35ty4nyc5.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/8igbsuw8di-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/2hbbzvc4jo-{0}-46ein0sx1k-46ein0sx1k.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/ytk5hy3ulg-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/vfdmw6j0l0-{0}-37tfw0ft22-37tfw0ft22.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/15eoqro64a-{0}-hrwsygsryq-hrwsygsryq.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/iwm54ti2l6-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/j52o0zueks-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/qs2i1t56uy-{0}-6cfz1n2cew-6cfz1n2cew.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/6olekccmbl-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/ktk6pmyatq-{0}-493y06b0oq-493y06b0oq.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/lsb6ok47rm-{0}-iovd86k7lj-iovd86k7lj.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/5ja34jxusa-{0}-vr1egmr9el-vr1egmr9el.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/yuaa0bu543-{0}-kbrnm935zg-kbrnm935zg.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/5cxj6sdo1r-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/s6xth8cudq-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/2zajx69wm8-{0}-notf2xhcfb-notf2xhcfb.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/lc08wxhbsl-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/tib2ft7uud-{0}-63fj8s7r0e-63fj8s7r0e.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/0t9kyn1rut-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/8hudg9r7ef-{0}-13ja33weya-13ja33weya.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/ag9c24yyld-{0}-wmp8iwak4q-wmp8iwak4q.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/yw6mrdr74y-{0}-2lgipwaf5j-2lgipwaf5j.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/staticwebassets.build.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/staticwebassets.build.json.cache
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/staticwebassets.development.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/swae.build.ex.cache
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.dll
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/refint/SaporeDiRomagna.dll
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.pdb
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/SaporeDiRomagna.genruntimeconfig.cache
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/ref/SaporeDiRomagna.dll
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/h3u6zvnu1b-{0}-totxyoz3cv-totxyoz3cv.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/r8srorcfkw-{0}-339m4jzow9-339m4jzow9.gz
+C:/Users/diego.zandoli/Downloads/sapore di romagna (1)/sapore di romagna/obj/Debug/net10.0/compressed/m7lj65epcg-{0}-339m4jzow9-339m4jzow9.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/appsettings.Development.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/appsettings.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.staticwebassets.runtime.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.staticwebassets.endpoints.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.exe
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.deps.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.runtimeconfig.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.dll
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.pdb
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/EmbeddedAttribute.cs
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/ValidatableTypeAttribute.cs
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/rpswa.dswa.cache.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.AssemblyInfoInputs.cache
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.AssemblyInfo.cs
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.csproj.CoreCompileInputs.cache
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/rjimswa.dswa.cache.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/scopedcss/Components/Layout/MainLayout.razor.rz.scp.css
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/scopedcss/Components/Layout/ReconnectModal.razor.rz.scp.css
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/scopedcss/bundle/SaporeDiRomagna.styles.css
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/scopedcss/projectbundle/SaporeDiRomagna.bundle.scp.css
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/3vc3xwgrfp-{0}-t1cqhe9u97-t1cqhe9u97.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/b19lgrg4ex-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/qyuadhfs37-{0}-sejl45xvog-sejl45xvog.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/2p2u79l9ex-{0}-aexeepp0ev-aexeepp0ev.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/fa1vi79w9i-{0}-xvp3kq03qx-xvp3kq03qx.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/4fk59iponl-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/3nd1bp2zvs-{0}-22vffe00uq-22vffe00uq.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/fa7rs4ir6z-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/s50thkyxek-{0}-qesaa3a1fm-qesaa3a1fm.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/c9uw3k1n3y-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/lglzypwq38-{0}-tmc1g35s3z-tmc1g35s3z.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/pg6yxlq07w-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/euwesq0jj5-{0}-rxsg74s51o-rxsg74s51o.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/xle54z68ft-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/9steopjj3a-{0}-q9ht133ko3-q9ht133ko3.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/fawfmb6r6e-{0}-jd9uben2k1-jd9uben2k1.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/f32jhmum0h-{0}-gye83jo8yx-gye83jo8yx.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/m7un3eb5zp-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/c9rj4hj9kv-{0}-wl58j5mj3v-wl58j5mj3v.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/n3vag4xc67-{0}-c2oey78nd0-c2oey78nd0.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/wg52co68qy-{0}-d4r6k3f320-d4r6k3f320.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/flxkcmbe54-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/uq3e99o5fq-{0}-keugtjm085-keugtjm085.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/o3m1sou40q-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/myqgaycap1-{0}-zub09dkrxp-zub09dkrxp.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/8igbsuw8di-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/2hbbzvc4jo-{0}-43atpzeawx-43atpzeawx.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/ytk5hy3ulg-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/vfdmw6j0l0-{0}-ynyaa8k90p-ynyaa8k90p.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/15eoqro64a-{0}-hrwsygsryq-hrwsygsryq.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/iwm54ti2l6-{0}-c63t5i9ira-c63t5i9ira.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/j52o0zueks-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/qs2i1t56uy-{0}-4094rpi4f9-4094rpi4f9.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/6olekccmbl-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/ktk6pmyatq-{0}-hd3gran6i8-hd3gran6i8.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/lsb6ok47rm-{0}-iovd86k7lj-iovd86k7lj.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/5ja34jxusa-{0}-ltid2c489k-ltid2c489k.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/yuaa0bu543-{0}-kbrnm935zg-kbrnm935zg.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/5cxj6sdo1r-{0}-8vyfqsqgz1-8vyfqsqgz1.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/s6xth8cudq-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/2zajx69wm8-{0}-u9q1upor1n-u9q1upor1n.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/lc08wxhbsl-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/tib2ft7uud-{0}-4d85u1mtcx-4d85u1mtcx.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/0t9kyn1rut-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/8hudg9r7ef-{0}-13ja33weya-13ja33weya.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/ag9c24yyld-{0}-wmp8iwak4q-wmp8iwak4q.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/yw6mrdr74y-{0}-2lgipwaf5j-2lgipwaf5j.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/r8srorcfkw-{0}-339m4jzow9-339m4jzow9.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/m7lj65epcg-{0}-339m4jzow9-339m4jzow9.gz
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/staticwebassets.build.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/staticwebassets.build.json.cache
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/staticwebassets.development.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/swae.build.ex.cache
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.dll
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/refint/SaporeDiRomagna.dll
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.pdb
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.genruntimeconfig.cache
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/ref/SaporeDiRomagna.dll
+C:/Users/diego.zandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/h3u6zvnu1b-{0}-ux20g4xa3n-ux20g4xa3n.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/appsettings.Development.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/appsettings.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.staticwebassets.runtime.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.staticwebassets.endpoints.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna
+/Users/diegozandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.deps.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.runtimeconfig.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.dll
+/Users/diegozandoli/Desktop/sapore-di-romagna/bin/Debug/net10.0/SaporeDiRomagna.pdb
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/EmbeddedAttribute.cs
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/ValidatableTypeAttribute.cs
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/rpswa.dswa.cache.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.GeneratedMSBuildEditorConfig.editorconfig
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.AssemblyInfoInputs.cache
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.AssemblyInfo.cs
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.csproj.CoreCompileInputs.cache
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.MvcApplicationPartsAssemblyInfo.cache
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/rjimswa.dswa.cache.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/scopedcss/Components/Layout/MainLayout.razor.rz.scp.css
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/scopedcss/Components/Layout/ReconnectModal.razor.rz.scp.css
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/scopedcss/bundle/SaporeDiRomagna.styles.css
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/scopedcss/projectbundle/SaporeDiRomagna.bundle.scp.css
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/b19lgrg4ex-{0}-c2jlpeoesf-c2jlpeoesf.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/2p2u79l9ex-{0}-aexeepp0ev-aexeepp0ev.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/4fk59iponl-{0}-ausgxo2sd3-ausgxo2sd3.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/fa7rs4ir6z-{0}-cosvhxvwiu-cosvhxvwiu.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/c9uw3k1n3y-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/pg6yxlq07w-{0}-fsbi9cje9m-fsbi9cje9m.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/xle54z68ft-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/fawfmb6r6e-{0}-jd9uben2k1-jd9uben2k1.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/m7un3eb5zp-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/n3vag4xc67-{0}-c2oey78nd0-c2oey78nd0.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/flxkcmbe54-{0}-j5mq2jizvt-j5mq2jizvt.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/o3m1sou40q-{0}-nvvlpmu67g-nvvlpmu67g.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/8igbsuw8di-{0}-pj5nd1wqec-pj5nd1wqec.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/ytk5hy3ulg-{0}-v0zj4ognzu-v0zj4ognzu.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/15eoqro64a-{0}-hrwsygsryq-hrwsygsryq.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/j52o0zueks-{0}-ft3s53vfgj-ft3s53vfgj.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/6olekccmbl-{0}-6pdc2jztkx-6pdc2jztkx.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/lsb6ok47rm-{0}-iovd86k7lj-iovd86k7lj.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/yuaa0bu543-{0}-kbrnm935zg-kbrnm935zg.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/s6xth8cudq-{0}-y7v9cxd14o-y7v9cxd14o.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/lc08wxhbsl-{0}-h1s4sie4z3-h1s4sie4z3.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/0t9kyn1rut-{0}-0j3bgjxly4-0j3bgjxly4.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/ag9c24yyld-{0}-2i0r6wwb69-2i0r6wwb69.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/yw6mrdr74y-{0}-iz83ucvm53-iz83ucvm53.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/r8srorcfkw-{0}-tfu90nxqfu-tfu90nxqfu.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/m7lj65epcg-{0}-tfu90nxqfu-tfu90nxqfu.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/staticwebassets.build.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/staticwebassets.build.json.cache
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/staticwebassets.development.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/swae.build.ex.cache
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.dll
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/refint/SaporeDiRomagna.dll
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.pdb
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/SaporeDiRomagna.genruntimeconfig.cache
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/ref/SaporeDiRomagna.dll
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/h3u6zvnu1b-{0}-ux20g4xa3n-ux20g4xa3n.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/3vc3xwgrfp-{0}-t1cqhe9u97-t1cqhe9u97.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/qyuadhfs37-{0}-sejl45xvog-sejl45xvog.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/fa1vi79w9i-{0}-xvp3kq03qx-xvp3kq03qx.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/3nd1bp2zvs-{0}-22vffe00uq-22vffe00uq.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/s50thkyxek-{0}-qesaa3a1fm-qesaa3a1fm.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/lglzypwq38-{0}-tmc1g35s3z-tmc1g35s3z.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/euwesq0jj5-{0}-rxsg74s51o-rxsg74s51o.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/9steopjj3a-{0}-q9ht133ko3-q9ht133ko3.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/f32jhmum0h-{0}-gye83jo8yx-gye83jo8yx.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/c9rj4hj9kv-{0}-wl58j5mj3v-wl58j5mj3v.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/wg52co68qy-{0}-d4r6k3f320-d4r6k3f320.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/uq3e99o5fq-{0}-keugtjm085-keugtjm085.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/myqgaycap1-{0}-zub09dkrxp-zub09dkrxp.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/2hbbzvc4jo-{0}-43atpzeawx-43atpzeawx.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/vfdmw6j0l0-{0}-ynyaa8k90p-ynyaa8k90p.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/iwm54ti2l6-{0}-c63t5i9ira-c63t5i9ira.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/qs2i1t56uy-{0}-4094rpi4f9-4094rpi4f9.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/ktk6pmyatq-{0}-hd3gran6i8-hd3gran6i8.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/5ja34jxusa-{0}-ltid2c489k-ltid2c489k.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/5cxj6sdo1r-{0}-8vyfqsqgz1-8vyfqsqgz1.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/2zajx69wm8-{0}-u9q1upor1n-u9q1upor1n.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/tib2ft7uud-{0}-4d85u1mtcx-4d85u1mtcx.gz
+/Users/diegozandoli/Desktop/sapore-di-romagna/obj/Debug/net10.0/compressed/8hudg9r7ef-{0}-13ja33weya-13ja33weya.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\bin\Debug\net10.0\appsettings.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\bin\Debug\net10.0\SaporeDiRomagna.staticwebassets.runtime.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\bin\Debug\net10.0\SaporeDiRomagna.staticwebassets.endpoints.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\bin\Debug\net10.0\SaporeDiRomagna.exe
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\bin\Debug\net10.0\SaporeDiRomagna.deps.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\bin\Debug\net10.0\SaporeDiRomagna.runtimeconfig.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\bin\Debug\net10.0\SaporeDiRomagna.dll
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\bin\Debug\net10.0\SaporeDiRomagna.pdb
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\EmbeddedAttribute.cs
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\ValidatableTypeAttribute.cs
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\SaporeDiRomagna.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\SaporeDiRomagna.AssemblyInfoInputs.cache
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\SaporeDiRomagna.AssemblyInfo.cs
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\SaporeDiRomagna.csproj.CoreCompileInputs.cache
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\SaporeDiRomagna.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\scopedcss\Components\Layout\ReconnectModal.razor.rz.scp.css
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\scopedcss\bundle\SaporeDiRomagna.styles.css
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\scopedcss\projectbundle\SaporeDiRomagna.bundle.scp.css
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\h3u6zvnu1b-{0}-ux20g4xa3n-ux20g4xa3n.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\3vc3xwgrfp-{0}-t1cqhe9u97-t1cqhe9u97.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\b19lgrg4ex-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\qyuadhfs37-{0}-sejl45xvog-sejl45xvog.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\2p2u79l9ex-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\fa1vi79w9i-{0}-xvp3kq03qx-xvp3kq03qx.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\4fk59iponl-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\3nd1bp2zvs-{0}-22vffe00uq-22vffe00uq.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\fa7rs4ir6z-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\s50thkyxek-{0}-qesaa3a1fm-qesaa3a1fm.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\c9uw3k1n3y-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\lglzypwq38-{0}-tmc1g35s3z-tmc1g35s3z.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\pg6yxlq07w-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\euwesq0jj5-{0}-rxsg74s51o-rxsg74s51o.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\xle54z68ft-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\9steopjj3a-{0}-q9ht133ko3-q9ht133ko3.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\fawfmb6r6e-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\f32jhmum0h-{0}-gye83jo8yx-gye83jo8yx.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\m7un3eb5zp-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\c9rj4hj9kv-{0}-wl58j5mj3v-wl58j5mj3v.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\n3vag4xc67-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\wg52co68qy-{0}-d4r6k3f320-d4r6k3f320.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\flxkcmbe54-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\uq3e99o5fq-{0}-keugtjm085-keugtjm085.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\o3m1sou40q-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\myqgaycap1-{0}-zub09dkrxp-zub09dkrxp.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\8igbsuw8di-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\2hbbzvc4jo-{0}-43atpzeawx-43atpzeawx.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\ytk5hy3ulg-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\vfdmw6j0l0-{0}-ynyaa8k90p-ynyaa8k90p.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\15eoqro64a-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\iwm54ti2l6-{0}-c63t5i9ira-c63t5i9ira.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\j52o0zueks-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\qs2i1t56uy-{0}-4094rpi4f9-4094rpi4f9.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\6olekccmbl-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\ktk6pmyatq-{0}-hd3gran6i8-hd3gran6i8.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\lsb6ok47rm-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\5ja34jxusa-{0}-ltid2c489k-ltid2c489k.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\yuaa0bu543-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\5cxj6sdo1r-{0}-8vyfqsqgz1-8vyfqsqgz1.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\s6xth8cudq-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\2zajx69wm8-{0}-u9q1upor1n-u9q1upor1n.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\lc08wxhbsl-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\tib2ft7uud-{0}-4d85u1mtcx-4d85u1mtcx.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\0t9kyn1rut-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\8hudg9r7ef-{0}-13ja33weya-13ja33weya.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\ag9c24yyld-{0}-wmp8iwak4q-wmp8iwak4q.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\yw6mrdr74y-{0}-2lgipwaf5j-2lgipwaf5j.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\r8srorcfkw-{0}-339m4jzow9-339m4jzow9.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\compressed\m7lj65epcg-{0}-339m4jzow9-339m4jzow9.gz
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\SaporeDiRomagna.dll
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\refint\SaporeDiRomagna.dll
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\SaporeDiRomagna.pdb
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\SaporeDiRomagna.genruntimeconfig.cache
+C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\obj\Debug\net10.0\ref\SaporeDiRomagna.dll

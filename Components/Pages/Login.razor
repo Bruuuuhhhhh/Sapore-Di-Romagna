@@ -1,0 +1,74 @@
+@page "/login"
+@rendermode InteractiveServer
+@inject SaporeDiRomagna.Data.AppState State
+@inject NavigationManager NavManager
+
+<div class="login-wrapper">
+    <div class="login-card">
+        <div class="text-center mb-4">
+            <img src="/img/logo.png" alt="Sapore di Romagna" style="max-height: 400px; max-width: 100%; object-fit: contain;" />
+        </div>
+        <p class="text-muted mb-4">Area Amministrativa</p>
+
+        @if (!string.IsNullOrEmpty(ErrorMsg))
+        {
+            <div class="alert alert-danger py-2">@ErrorMsg</div>
+        }
+
+        <EditForm Model="@loginModel" OnValidSubmit="HandleLogin" FormName="LoginForm">
+            <div class="form-floating mb-3">
+                <InputText id="email" class="form-control" @bind-Value="loginModel.Email" placeholder="name@example.com" />
+                <label for="email">Email address</label>
+            </div>
+            <div class="form-floating mb-4 position-relative">
+                <input type="@(showPassword ? "text" : "password")" id="password" class="form-control" style="padding-right: 2.5rem;" @bind="loginModel.Password" placeholder="Password" />
+                <label for="password">Password</label>
+                <button type="button" class="btn position-absolute top-50 end-0 translate-middle-y border-0 text-muted" style="background:transparent; z-index: 5; padding: 0.5rem 1rem;" @onclick="TogglePassword">
+                    <i class="bi @(showPassword ? "bi-eye-slash-fill" : "bi-eye-fill")"></i>
+                </button>
+            </div>
+            <button class="btn btn-primary w-100 py-2" type="submit">Accedi al Gestionale</button>
+        </EditForm>
+        <div class="mt-4 text-muted small">
+            Credenziali demo:<br />email: saporediromagna.srl@gmail.com<br />password: AmoLaPizza67#
+        </div>
+    </div>
+</div>
+
+@code {
+    private LoginModel loginModel = new();
+    private string ErrorMsg = "";
+    private bool showPassword = false;
+
+    private void TogglePassword()
+    {
+        showPassword = !showPassword;
+    }
+
+    protected override void OnInitialized()
+    {
+        if (State.IsLoggedIn)
+        {
+            NavManager.NavigateTo("/");
+        }
+    }
+
+    private void HandleLogin()
+    {
+        if (loginModel.Email == "saporediromagna.srl@gmail.com" && loginModel.Password == "AmoLaPizza67#")
+        {
+            State.IsLoggedIn = true;
+            NavManager.NavigateTo("/");
+        }
+        else
+        {
+            ErrorMsg = "Credenziali non valide.";
+        }
+    }
+
+    public class LoginModel
+    {
+        public string Email { get; set; } = "";
+        public string Password { get; set; } = "";
+    }
+}

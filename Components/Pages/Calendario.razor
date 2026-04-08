@@ -1,0 +1,796 @@
+@page "/calendario"
+@inject SaporeDiRomagna.Data.AppState State
+@rendermode InteractiveServer
+
+<div class="calendar-container animate-fade-in">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+        <div>
+            <h1 class="display-6 fw-bold text-dark mb-1">Agenda Ristorante</h1>
+            <p class="text-muted mb-0">Gestione prenotazioni e disponibilità sale</p>
+        </div>
+        <div class="calendar-controls shadow-sm">
+            <button class="control-btn" @onclick="PrevMonth">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <div class="current-month">
+                @currentMonth.ToString("MMMM yyyy").ToUpper()
+            </div>
+            <button class="control-btn" @onclick="NextMonth">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="calendar-card">
+        <div class="calendar-grid">
+            @foreach (var day in weekDays)
+            {
+                <div class="calendar-header-cell">@day</div>
+            }
+
+            @for (int i = 0; i < startOffset; i++)
+            {
+                <div class="calendar-day-cell empty"></div>
+            }
+
+            @for (int day = 1; day <= daysInMonth; day++)
+            {
+                var date = new DateTime(currentMonth.Year, currentMonth.Month, day);
+                var isMonday = date.DayOfWeek == DayOfWeek.Monday;
+                var dayBookings = State.Prenotazioni.Where(p => p.Data.Date == date.Date).ToList();
+                var lunchSeats = dayBookings.Where(p => p.Servizio == ServizioTipo.Pranzo).Sum(p => p.Posti);
+                var dinnerSeats = dayBookings.Where(p => p.Servizio == ServizioTipo.Cena).Sum(p => p.Posti);
+                
+                var lunchPerc = Math.Min(100, (lunchSeats * 100) / 130);
+                var dinnerPerc = Math.Min(100, (dinnerSeats * 100) / 130);
+
+                <div class="calendar-day-cell @(isMonday ? "is-closed" : "") @(date.Date == DateTime.Today ? "is-today" : "")" 
+                     @onclick="() => SelectDate(date)">
+                    <div class="day-top">
+                        <span class="day-number">@day</span>
+                        @if (date.Date == DateTime.Today)
+                        {
+                            <span class="today-label">OGGI</span>
+                        }
+                    </div>
+
+                    @if (isMonday)
+                    {
+                        <div class="closed-indicator">
+                            <i class="bi bi-moon-stars-fill"></i>
+                            <span>CHIUSO</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="occupancy-stats">
+                            <div class="service-row" title="Pranzo: @lunchSeats/130">
+                                <div class="service-info">
+                                    <span class="service-abbr">P</span>
+                                    <span class="service-count">@lunchSeats</span>
+                                </div>
+                                <div class="progress-mini">
+                                    <div class="progress-bar @(lunchPerc > 90 ? "bg-danger" : lunchPerc > 70 ? "bg-warning" : "bg-success")" 
+                                         style="width: @lunchPerc%"></div>
+                                </div>
+                            </div>
+                            <div class="service-row" title="Cena: @dinnerSeats/130">
+                                <div class="service-info">
+                                    <span class="service-abbr">C</span>
+                                    <span class="service-count">@dinnerSeats</span>
+                                </div>
+                                <div class="progress-mini">
+                                    <div class="progress-bar @(dinnerPerc > 90 ? "bg-danger" : dinnerPerc > 70 ? "bg-warning" : "bg-success")" 
+                                         style="width: @dinnerPerc%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@if (selectedDate.HasValue)
+{
+    <div class="modal-backdrop-custom animate-fade-in" @onclick="() => selectedDate = null">
+        <div class="modal-container animate-slide-up" @onclick:stopPropagation="true">
+            <div class="modal-header-custom">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="date-badge">
+                        <span class="date-badge-day">@selectedDate.Value.Day</span>
+                        <span class="date-badge-month">@selectedDate.Value.ToString("MMM").ToUpper()</span>
+                    </div>
+                    <div>
+                        <h4 class="mb-0 fw-bold">@selectedDate.Value.ToString("dddd d MMMM")</h4>
+                        <span class="text-muted">Gestione prenotazioni</span>
+                    </div>
+                </div>
+                <button class="btn-close-custom" @onclick="() => selectedDate = null">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <div class="modal-body-custom">
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <div class="section-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="section-title">PRENOTAZIONI ATTIVE</h6>
+                                <span class="badge rounded-pill bg-light text-dark border">
+                                    @State.Prenotazioni.Count(p => p.Data.Date == selectedDate.Value.Date) tot.
+                                </span>
+                            </div>
+
+                            <div class="booking-list-container">
+                                @if (!State.Prenotazioni.Any(p => p.Data.Date == selectedDate.Value.Date))
+                                {
+                                    <div class="empty-state">
+                                        <div class="empty-icon shadow-sm">
+                                            <i class="bi bi-calendar-check"></i>
+                                        </div>
+                                        <p>Ancora nessun impegno registrato</p>
+                                    </div>
+                                }
+                                else
+                                {
+                                    @foreach (var p in State.Prenotazioni.Where(p => p.Data.Date == selectedDate.Value.Date).OrderBy(p => p.Orario))
+                                    {
+                                        <div class="booking-card @(p.Servizio == ServizioTipo.Pranzo ? "lunch-theme" : "dinner-theme")">
+                                            <div class="booking-time-side">
+                                                <span class="time">@p.Orario.ToString("HH:mm")</span>
+                                                <span class="servizio">@(p.Servizio == ServizioTipo.Pranzo ? "PRANZO" : "CENA")</span>
+                                            </div>
+                                            <div class="booking-info-main">
+                                                <div class="d-flex justify-content-between align-items-start">
+                                                    <div>
+                                                        <div class="client-name">@p.NomeCliente</div>
+                                                        <div class="booking-details">
+                                                            <span class="detail-item"><i class="bi bi-people me-1"></i> @p.Posti posti</span>
+                                                            @if (!string.IsNullOrEmpty(p.Note))
+                                                            {
+                                                                <span class="detail-item ms-2"><i class="bi bi-info-circle me-1"></i> Note presenti</span>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                    <button class="delete-btn" @onclick="() => DeletePrenotazione(p)" title="Elimina">
+                                                        <i class="bi bi-trash3"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="section-card highlight">
+                            <h6 class="section-title mb-3">NUOVA PRENOTAZIONE</h6>
+                            
+                            @if (selectedDate.Value.DayOfWeek == DayOfWeek.Monday)
+                            {
+                                <div class="closed-alert">
+                                    <i class="bi bi-info-circle-fill"></i>
+                                    <div>
+                                        <strong>Ristorante Chiuso</strong>
+                                        <p class="mb-0 small">Il lunedì è il nostro giorno di riposo settimanale.</p>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="booking-form">
+                                    <div class="form-group mb-3">
+                                        <label>Tipo Servizio</label>
+                                        <div class="service-selector">
+                                            <button class="service-btn @(newPren.Servizio == ServizioTipo.Pranzo ? "active" : "")" 
+                                                    @onclick="() => SetServizio(ServizioTipo.Pranzo)">
+                                                <i class="bi bi-sun"></i> Pranzo
+                                            </button>
+                                            <button class="service-btn @(newPren.Servizio == ServizioTipo.Cena ? "active" : "")" 
+                                                    @onclick="() => SetServizio(ServizioTipo.Cena)">
+                                                <i class="bi bi-moon-stars"></i> Cena
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-6">
+                                            <label>Orario</label>
+                                            <input type="time" class="form-control" @bind="newPrenTime" />
+                                        </div>
+                                        <div class="col-6">
+                                            <label>Posti</label>
+                                            <input type="number" class="form-control" @bind="newPren.Posti" min="1" max="130" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label>Nome Cliente</label>
+                                        <input type="text" class="form-control" @bind="newPren.NomeCliente" placeholder="Es. Rossi Mario" />
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <label>Note Speciali</label>
+                                        <textarea class="form-control" @bind="newPren.Note" rows="2" placeholder="Allergie, preferenze tavolo..."></textarea>
+                                    </div>
+
+                                    @if (!string.IsNullOrEmpty(errorMessage))
+                                    {
+                                        <div class="error-msg mb-3">
+                                            <i class="bi bi-exclamation-circle-fill me-2"></i> @errorMessage
+                                        </div>
+                                    }
+
+                                    <button class="btn-save-booking" @onclick="AddPrenotazione">
+                                        <i class="bi bi-plus-circle me-2"></i> REGISTRA PRENOTAZIONE
+                                    </button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    :root {
+        --calendar-bg: #ffffff;
+        --cell-border: #f1f3f5;
+        --primary-accent: #0d6efd;
+        --secondary-accent: #6c757d;
+        --success-soft: #d1e7dd;
+        --danger-soft: #f8d7da;
+        --lunch-color: #f59e0b;
+        --dinner-color: #6366f1;
+    }
+
+    .calendar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .calendar-controls {
+        background: white;
+        padding: 8px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border: 1px solid #e9ecef;
+    }
+
+    .control-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        background: #f8f9fa;
+        color: #343a40;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+
+    .control-btn:hover {
+        background: var(--primary-accent);
+        color: white;
+    }
+
+    .current-month {
+        font-weight: 800;
+        color: var(--primary-accent);
+        min-width: 160px;
+        text-align: center;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+    }
+
+    .calendar-card {
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .calendar-header-cell {
+        padding: 15px;
+        text-align: center;
+        font-weight: 700;
+        color: #adb5bd;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--cell-border);
+    }
+
+    .calendar-day-cell {
+        height: 140px;
+        padding: 12px;
+        border-right: 1px solid var(--cell-border);
+        border-bottom: 1px solid var(--cell-border);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .calendar-day-cell:nth-child(7n) { border-right: none; }
+
+    .calendar-day-cell:hover {
+        background: #f8fbff;
+        z-index: 2;
+        box-shadow: inset 0 0 0 2px var(--primary-accent);
+    }
+
+    .calendar-day-cell.empty {
+        background: #fafbfc;
+        cursor: default;
+    }
+
+    .calendar-day-cell.is-today {
+        background: #f0f7ff;
+    }
+
+    .calendar-day-cell.is-closed {
+        background: #fffafa;
+    }
+
+    .day-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .day-number {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: #212529;
+    }
+
+    .today-label {
+        font-size: 0.6rem;
+        font-weight: 900;
+        background: var(--primary-accent);
+        color: white;
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+
+    .closed-indicator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #dc3545;
+        opacity: 0.6;
+        gap: 5px;
+    }
+
+    .closed-indicator i { font-size: 1.2rem; }
+    .closed-indicator span { font-size: 0.65rem; font-weight: 800; letter-spacing: 1px; }
+
+    .occupancy-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .service-row {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .service-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+
+    .service-abbr { color: #868e96; }
+    .service-count { color: #495057; }
+
+    .progress-mini {
+        height: 6px;
+        background: #e9ecef;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        height: 100%;
+        border-radius: 10px;
+        transition: width 0.6s ease;
+    }
+
+    /* Modal Styling */
+    .modal-backdrop-custom {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(8px);
+        z-index: 1050;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .modal-container {
+        background: white;
+        width: 100%;
+        max-width: 900px;
+        max-height: 90vh;
+        border-radius: 30px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-header-custom {
+        padding: 25px 35px;
+        background: #f8fafc;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .date-badge {
+        background: var(--primary-accent);
+        color: white;
+        padding: 10px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 60px;
+    }
+
+    .date-badge-day { font-size: 1.5rem; font-weight: 800; line-height: 1; }
+    .date-badge-month { font-size: 0.7rem; font-weight: 700; opacity: 0.8; }
+
+    .btn-close-custom {
+        background: white;
+        border: 1px solid #e2e8f0;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #64748b;
+        transition: all 0.2s;
+    }
+
+    .btn-close-custom:hover {
+        background: #f1f5f9;
+        color: #0f172a;
+        transform: rotate(90deg);
+    }
+
+    .modal-body-custom {
+        padding: 35px;
+        overflow-y: auto;
+    }
+
+    .section-card {
+        background: white;
+        border-radius: 20px;
+        padding: 20px;
+        border: 1px solid #f1f5f9;
+        height: 100%;
+    }
+
+    .section-card.highlight {
+        background: #f8fafc;
+        border-color: #e2e8f0;
+    }
+
+    .section-title {
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: #94a3b8;
+        letter-spacing: 1px;
+    }
+
+    .booking-list-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-height: 450px;
+        overflow-y: auto;
+        padding-right: 5px;
+    }
+
+    .booking-card {
+        display: flex;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        transition: transform 0.2s;
+    }
+
+    .booking-card:hover {
+        transform: translateX(5px);
+    }
+
+    .booking-time-side {
+        width: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        font-weight: 800;
+    }
+
+    .lunch-theme .booking-time-side { background: #fffbeb; color: #d97706; }
+    .dinner-theme .booking-time-side { background: #eef2ff; color: #4f46e5; }
+
+    .booking-time-side .time { font-size: 1.1rem; }
+    .booking-time-side .servizio { font-size: 0.55rem; opacity: 0.8; }
+
+    .booking-info-main {
+        flex: 1;
+        padding: 12px 18px;
+        background: white;
+    }
+
+    .client-name { font-weight: 700; color: #1e293b; margin-bottom: 2px; }
+    .booking-details { font-size: 0.8rem; color: #64748b; }
+
+    .delete-btn {
+        background: transparent;
+        border: none;
+        color: #cbd5e1;
+        padding: 5px;
+        transition: color 0.2s;
+    }
+
+    .delete-btn:hover { color: #ef4444; }
+
+    .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+        color: #94a3b8;
+    }
+
+    .empty-icon {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        font-size: 1.5rem;
+        color: #cbd5e1;
+    }
+
+    .service-selector {
+        display: flex;
+        gap: 10px;
+    }
+
+    .service-btn {
+        flex: 1;
+        border: 1px solid #e2e8f0;
+        background: white;
+        padding: 10px;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        color: #64748b;
+        transition: all 0.2s;
+    }
+
+    .service-btn i { margin-right: 5px; }
+
+    .service-btn.active {
+        background: var(--primary-accent);
+        color: white;
+        border-color: var(--primary-accent);
+        box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+    }
+
+    .form-control {
+        border-radius: 12px;
+        padding: 10px 15px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.9rem;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary-accent);
+        box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+    }
+
+    label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #475569;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+    .btn-save-booking {
+        width: 100%;
+        background: #0f172a;
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 15px;
+        font-weight: 800;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        transition: all 0.2s;
+    }
+
+    .btn-save-booking:hover {
+        background: #1e293b;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .error-msg {
+        background: #fef2f2;
+        color: #ef4444;
+        padding: 10px 15px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border: 1px solid #fee2e2;
+    }
+
+    .closed-alert {
+        display: flex;
+        gap: 15px;
+        background: #fffbeb;
+        border: 1px solid #fef3c7;
+        padding: 20px;
+        border-radius: 15px;
+        color: #92400e;
+    }
+
+    .closed-alert i { font-size: 1.5rem; }
+
+    .animate-fade-in { animation: fadeIn 0.4s ease-out; }
+    .animate-slide-up { animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+    @@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+</style>
+
+@code {
+    private DateTime currentMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+    private DateTime? selectedDate;
+    private string[] weekDays = { "Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom" };
+    
+    private Prenotazione newPren = new();
+    private DateTime newPrenTime = DateTime.Today.AddHours(12).AddMinutes(30);
+    private string errorMessage = "";
+
+    private int daysInMonth => DateTime.DaysInMonth(currentMonth.Year, currentMonth.Month);
+    private int startOffset => ((int)new DateTime(currentMonth.Year, currentMonth.Month, 1).DayOfWeek + 6) % 7;
+
+    private void PrevMonth() => currentMonth = currentMonth.AddMonths(-1);
+    private void NextMonth() => currentMonth = currentMonth.AddMonths(1);
+
+    private void SelectDate(DateTime date)
+    {
+        selectedDate = date;
+        newPren = new Prenotazione { 
+            Data = date, 
+            Servizio = ServizioTipo.Pranzo,
+            Posti = 2
+        };
+        newPrenTime = date.AddHours(12).AddMinutes(30);
+        errorMessage = "";
+    }
+
+    private void SetServizio(ServizioTipo tipo)
+    {
+        if (!selectedDate.HasValue) return;
+        newPren.Servizio = tipo;
+        if (tipo == ServizioTipo.Pranzo)
+            newPrenTime = selectedDate.Value.Date.AddHours(12).AddMinutes(30);
+        else
+            newPrenTime = selectedDate.Value.Date.AddHours(20).AddMinutes(0);
+    }
+
+    private void AddPrenotazione()
+    {
+        if (!selectedDate.HasValue) return;
+        errorMessage = "";
+        newPren.Orario = TimeOnly.FromDateTime(newPrenTime);
+
+        // Validation - Monday
+        if (selectedDate.Value.DayOfWeek == DayOfWeek.Monday)
+        {
+            errorMessage = "Il ristorante è chiuso il lunedì.";
+            return;
+        }
+
+        // Validation - Time ranges
+        if (newPren.Servizio == ServizioTipo.Pranzo)
+        {
+            if (newPren.Orario < new TimeOnly(11, 30) || newPren.Orario > new TimeOnly(15, 30))
+            {
+                errorMessage = "L'orario del pranzo deve essere tra le 11:30 e le 15:30.";
+                return;
+            }
+        }
+        else // Cena
+        {
+            if (newPren.Orario < new TimeOnly(18, 00))
+            {
+                errorMessage = "L'orario della cena deve essere dalle 18:00 in poi.";
+                return;
+            }
+        }
+
+        // Validation - Capacity (130 seats)
+        int currentSeats = State.Prenotazioni
+            .Where(p => p.Data.Date == selectedDate.Value.Date && p.Servizio == newPren.Servizio)
+            .Sum(p => p.Posti);
+        
+        if (currentSeats + newPren.Posti > 130)
+        {
+            errorMessage = $"Capienza massima superata (130 posti). Disponibili: {130 - currentSeats}.";
+            return;
+        }
+
+        if (string.IsNullOrEmpty(newPren.NomeCliente))
+        {
+            errorMessage = "Inserire il nome del cliente.";
+            return;
+        }
+
+        State.Prenotazioni.Add(newPren);
+        
+        // Reset form for next entry
+        var currentServizio = newPren.Servizio;
+        newPren = new Prenotazione { 
+            Data = selectedDate.Value, 
+            Servizio = currentServizio,
+            Posti = 2
+        };
+        if (currentServizio == ServizioTipo.Pranzo)
+            newPrenTime = selectedDate.Value.Date.AddHours(12).AddMinutes(30);
+        else
+            newPrenTime = selectedDate.Value.Date.AddHours(20).AddMinutes(0);
+    }
+
+    private void DeletePrenotazione(Prenotazione p)
+    {
+        State.Prenotazioni.Remove(p);
+    }
+}

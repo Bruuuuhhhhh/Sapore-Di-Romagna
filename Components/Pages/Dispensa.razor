@@ -1,0 +1,191 @@
+@page "/dispensa"
+@inject SaporeDiRomagna.Data.AppState State
+@rendermode InteractiveServer
+
+<h1 class="mb-4" style="color: var(--primary-color);">Magazzino e Dispensa</h1>
+<p class="text-muted mb-4">Gestisci gli ingredienti di base. Tutti i piatti del menù faranno riferimento a queste materie prime.</p>
+
+<div class="card shadow-sm border-0 mb-4 p-4" style="border-top: 4px solid var(--accent-color);">
+    <div class="row g-3 align-items-end">
+        <div class="col-md-5">
+            <label class="form-label text-muted small">@(isEditing ? "Modifica" : "Nuovo") Ingrediente</label>
+            <input class="form-control" @bind="currentIngrediente.Nome" placeholder="es. Zucchine Romagnole" />
+        </div>
+        <div class="col-md-2">
+            <label class="form-label text-muted small">Unità di Misura</label>
+            <select class="form-select" @bind="currentIngrediente.UnitaMisura">
+                <option value="kg">Chilogrammi (kg)</option>
+                <option value="g">Grammi (g)</option>
+                <option value="lt">Litri (lt)</option>
+                <option value="pz">Pezzi / Unità (pz)</option>
+                <option value="mz">Mazzi (mz)</option>
+                <option value="gr">Grammi (gr)</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label text-muted small">Categoria</label>
+            <select class="form-select" @bind="currentIngrediente.Categoria">
+                <option value="Carni e Salumi">Carni e Salumi</option>
+                <option value="Latticini e Uova">Latticini e Uova</option>
+                <option value="Farine e Dispensa">Farine e Dispensa</option>
+                <option value="Ortofrutta e Aromi">Ortofrutta e Aromi</option>
+                <option value="Condimenti e Varie">Condimenti e Varie</option>
+                <option value="Varie">Altro / Varie</option>
+            </select>
+        </div>
+        <div class="col-md-4 d-flex gap-2">
+            @if (isEditing)
+            {
+                <button class="btn btn-outline-secondary w-50 fw-bold" @onclick="AnnullaModifica">Annulla</button>
+                <button class="btn btn-outline-primary w-50 fw-bold" @onclick="SalvaModifica" disabled="@string.IsNullOrWhiteSpace(currentIngrediente.Nome)">Salva</button>
+            }
+            else
+            {
+                <button class="btn btn-outline-success w-100 fw-bold" @onclick="AggiungiIngrediente" disabled="@string.IsNullOrWhiteSpace(currentIngrediente.Nome)">
+                    <i class="bi bi-plus-lg"></i> Aggiungi
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0 bg-white">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <tbody>
+                    @{
+                        var grouped = State.Ingredienti.OrderBy(x => x.Categoria).ThenBy(x => x.Ordine).GroupBy(x => x.Categoria);
+                    }
+                    @foreach(var group in grouped)
+                    {
+                        <tr class="table-light">
+                            <td colspan="5" class="ps-3 fw-bold text-uppercase small text-primary" style="letter-spacing: 0.1em; background: #f8f9fa;">
+                                <i class="bi bi-tag"></i> @group.Key
+                            </td>
+                        </tr>
+                        @foreach(var i in group)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-sm">
+                                        <button class="btn btn-outline-secondary" @onclick="() => MoveUp(i)"><i class="bi bi-chevron-up"></i></button>
+                                        <button class="btn btn-outline-secondary" @onclick="() => MoveDown(i)"><i class="bi bi-chevron-down"></i></button>
+                                    </div>
+                                </td>
+                                <td class="ps-4" style="color: var(--secondary-color);">
+                                    <strong>@i.Nome</strong>
+                                    @{
+                                        var piattiUsati = State.Prodotti.Where(p => p.IngredientiIds.Contains(i.Id)).Select(p => p.Nome).ToList();
+                                    }
+                                    @if(piattiUsati.Any())
+                                    {
+                                        <div class="text-muted" style="font-size: 0.7rem; font-style: italic; opacity: 0.8;">
+                                            <i class="bi bi-link-45deg"></i> Usato in: @(string.Join(", ", piattiUsati))
+                                        </div>
+                                    }
+                                </td>
+                                <td><span class="badge bg-light text-dark border">@i.UnitaMisura</span></td>
+                                <td><span class="text-muted small">@group.Key</span></td>
+                                <td class="pe-4 text-end">
+                                    <button class="btn btn-sm btn-outline-secondary me-1" @onclick="() => Edit(i)" title="Modifica"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger" @onclick="() => EliminaIngrediente(i)"><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            @if(!State.Ingredienti.Any())
+            {
+                <div class="p-5 text-center text-muted">La dispensa è vuota. Aggiungi il primo ingrediente!</div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private SaporeDiRomagna.Data.Ingrediente currentIngrediente = new();
+    private bool isEditing = false;
+    private SaporeDiRomagna.Data.Ingrediente? editingItemRef = null;
+
+    private void AggiungiIngrediente()
+    {
+        if (!string.IsNullOrWhiteSpace(currentIngrediente.Nome))
+        {
+            currentIngrediente.Id = Guid.NewGuid();
+            currentIngrediente.Ordine = State.Ingredienti.Any() ? State.Ingredienti.Max(x => x.Ordine) + 1 : 1;
+            State.Ingredienti.Add(currentIngrediente);
+            currentIngrediente = new();
+        }
+    }
+
+    private void MoveUp(SaporeDiRomagna.Data.Ingrediente i)
+    {
+        var list = State.Ingredienti.OrderBy(x => x.Ordine).ToList();
+        int index = list.IndexOf(i);
+        if (index > 0)
+        {
+            var other = list[index - 1];
+            int temp = i.Ordine;
+            i.Ordine = other.Ordine;
+            other.Ordine = temp;
+        }
+    }
+
+    private void MoveDown(SaporeDiRomagna.Data.Ingrediente i)
+    {
+        var list = State.Ingredienti.OrderBy(x => x.Ordine).ToList();
+        int index = list.IndexOf(i);
+        if (index < list.Count - 1)
+        {
+            var other = list[index + 1];
+            int temp = i.Ordine;
+            i.Ordine = other.Ordine;
+            other.Ordine = temp;
+        }
+    }
+
+    private void Edit(SaporeDiRomagna.Data.Ingrediente i)
+    {
+        isEditing = true;
+        editingItemRef = i;
+        currentIngrediente = new SaporeDiRomagna.Data.Ingrediente
+        {
+            Id = i.Id,
+            Nome = i.Nome,
+            UnitaMisura = i.UnitaMisura,
+            Categoria = i.Categoria
+        };
+    }
+
+    private void SalvaModifica()
+    {
+        if (editingItemRef != null && !string.IsNullOrWhiteSpace(currentIngrediente.Nome))
+        {
+            editingItemRef.Nome = currentIngrediente.Nome;
+            editingItemRef.UnitaMisura = currentIngrediente.UnitaMisura;
+            editingItemRef.Categoria = currentIngrediente.Categoria;
+            AnnullaModifica();
+        }
+    }
+
+    private void AnnullaModifica()
+    {
+        isEditing = false;
+        editingItemRef = null;
+        currentIngrediente = new();
+    }
+
+    private void EliminaIngrediente(SaporeDiRomagna.Data.Ingrediente i)
+    {
+        // Rimuove l'ingrediente dalla dispensa
+        State.Ingredienti.Remove(i);
+        
+        // Lo rimuove anche da tutti i piatti che lo contenevano
+        foreach(var piatto in State.Prodotti)
+        {
+            piatto.IngredientiIds.Remove(i.Id);
+        }
+    }
+}

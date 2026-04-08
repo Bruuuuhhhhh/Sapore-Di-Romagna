@@ -1,0 +1,592 @@
+@page "/compilazione-documenti"
+@inject SaporeDiRomagna.Data.AppState State
+@inject NavigationManager NavManager
+@inject IJSRuntime JSRuntime
+@rendermode InteractiveServer
+
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 d-print-none">
+        <div>
+            <h1 class="h3 mb-1">Pagina di Compilazione</h1>
+            <p class="text-muted">Compila il documento scrivendo direttamente nei settori corrispondenti.</p>
+        </div>
+        <div class="btn-group shadow-sm">
+            <button class="btn @(currentType == DocumentType.FatturaImmediata ? "btn-primary" : "btn-outline-primary")" @onclick="() => SetType(DocumentType.FatturaImmediata)">Fattura Immediata</button>
+            <button class="btn @(currentType == DocumentType.FatturaDifferita ? "btn-primary" : "btn-outline-primary")" @onclick="() => SetType(DocumentType.FatturaDifferita)">Fattura Differita</button>
+            <button class="btn @(currentType == DocumentType.DocumentoTrasporto ? "btn-primary" : "btn-outline-primary")" @onclick="() => SetType(DocumentType.DocumentoTrasporto)">DDT</button>
+        </div>
+    </div>
+
+    <div class="document-container shadow-lg mb-5 mx-auto">
+        @* CSS styling to mimic the PDF *@
+        <style>
+            .document-container {
+                width: 210mm;
+                min-height: 297mm;
+                background: white;
+                padding: 10mm;
+                font-family: 'Arial', sans-serif;
+                color: #000;
+                position: relative;
+                border: 1px solid #ddd;
+            }
+
+            .doc-header-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+            .doc-header-table td { border: 1px solid #000; padding: 5px; vertical-align: top; }
+            
+            .doc-title { text-align: right; font-weight: bold; font-size: 0.9rem; margin-bottom: 10px; text-transform: uppercase; }
+            
+            .label-small { font-size: 0.65rem; color: #555; display: block; margin-bottom: 2px; }
+            .data-value { font-weight: bold; font-size: 0.85rem; }
+            
+            input, textarea {
+                width: 100%;
+                border: 1px dashed #ccc;
+                padding: 2px 4px;
+                font-size: 0.85rem;
+                background: #fdfdfd;
+                transition: all 0.2s;
+            }
+            
+            input:focus, textarea:focus {
+                background: #fff;
+                border: 1px solid #007bff;
+                outline: none;
+                box-shadow: 0 0 5px rgba(0,123,255,0.25);
+            }
+
+            input::placeholder, textarea::placeholder {
+                color: #999;
+                font-style: italic;
+                font-size: 0.75rem;
+            }
+
+            .sector-title { background: #eee; font-weight: bold; font-size: 0.75rem; text-align: center; padding: 3px; border-bottom: 1px solid #000; }
+            
+            .items-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+            .items-table th { border: 1px solid #000; background: #eee; font-size: 0.75rem; padding: 4px; text-align: center; }
+            .items-table td { border: 1px solid #000; padding: 2px; vertical-align: middle; }
+            
+            .totals-table { width: 100%; border-collapse: collapse; margin-top: -1px; }
+            .totals-table td { border: 1px solid #000; padding: 4px; }
+            .bg-highlight { background: #ffeb3b; font-weight: bold; }
+            
+            .btn-remove { 
+                color: #dc3545; 
+                cursor: pointer; 
+                font-size: 0.9rem; 
+                background: white;
+                border: 1px solid #dc3545;
+                border-radius: 50%;
+                width: 28px;
+                height: 28px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+                opacity: 0;
+                transform: scale(0.8);
+                transition: all 0.2s ease-in-out;
+                z-index: 10;
+            }
+            tr:hover .btn-remove { opacity: 1; transform: scale(1); }
+            .btn-remove:hover { background: #dc3545; color: white; }
+
+            @@media print {
+                html, body { background: #fff !important; }
+                body * { visibility: hidden; }
+                .document-container, .document-container * { visibility: visible; }
+                .document-container { 
+                    position: absolute; 
+                    left: 0; 
+                    top: 0; 
+                    width: 100% !important; 
+                    margin: 0 !important; 
+                    padding: 0 !important; 
+                    border: none !important; 
+                    box-shadow: none !important; 
+                }
+                .d-print-none { display: none !important; }
+                input, textarea { border: none !important; background: transparent !important; }
+                input::placeholder, textarea::placeholder { color: transparent !important; }
+                @@page { margin: 10mm; }
+            }
+        </style>
+
+        <div class="doc-title">
+            @if (currentType == DocumentType.FatturaImmediata) { <span>Fattura Immediata Vendita</span> }
+            else if (currentType == DocumentType.FatturaDifferita) { <span>Fattura Differita Vendita</span> }
+            else { <span>DDT Vendita</span> }
+        </div>
+
+        @* HEADER *@
+        <table class="doc-header-table">
+            <tr>
+                <td style="width: 50%;">
+                    @if (currentType == DocumentType.DocumentoTrasporto) { <div class="sector-title" style="margin: -5px -5px 5px -5px;">DITTA</div> }
+                    <div style="display: flex; gap: 15px; align-items: start;">
+                        <img src="/img/logo.png" style="width: 120px;" />
+                        <div>
+                            <strong style="text-transform: uppercase; font-size: 0.95rem;">@State.DatiAziendali.RagioneSociale</strong><br/>
+                            <span class="label-small">@State.DatiAziendali.Indirizzo</span>
+                            <span class="label-small">P.IVA: @State.DatiAziendali.PartitaIva</span>
+                            <span class="label-small">tel. @State.DatiAziendali.Telefono</span>
+                            <span class="label-small">mail: @State.DatiAziendali.PEC</span>
+                        </div>
+                    </div>
+                </td>
+                <td style="width: 50%;">
+                    @if (currentType != DocumentType.DocumentoTrasporto)
+                    {
+                        <div class="sector-title" style="margin: -5px -5px 5px -5px;">Dati essenziali compratore</div>
+                        <span class="label-small">Ragione sociale</span>
+                        <input @bind="doc.RagioneSocialeCompratore" list="partners-list" @bind:after="OnPartnerNameChanged" placeholder="Ragione sociale" />
+                        <span class="label-small">Indirizzo</span>
+                        <input @bind="doc.IndirizzoCompratore" placeholder="Indirizzo" />
+                        <div class="row g-0">
+                            <div class="col-4">
+                                <span class="label-small">Contatto / Tel.</span>
+                                <input @bind="doc.ContattoCompratore" placeholder="Contatto" />
+                            </div>
+                            <div class="col-4">
+                                <span class="label-small">P.IVA</span>
+                                <input @bind="doc.PivaCompratore" placeholder="P.IVA" />
+                            </div>
+                            <div class="col-4">
+                                <span class="label-small">Mail/PEC</span>
+                                <input @bind="doc.EmailCompratore" placeholder="Email" />
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <table style="width: 100%; height: 100%; margin: -5px; border-collapse: collapse;">
+                            <tr>
+                                <td class="sector-title" style="width: 50%; border-top: none; border-left: none;">DESTINAZIONE</td>
+                                <td class="sector-title" style="width: 50%; border-top: none; border-right: none;">DESTINATARIO</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: none; border-left: none; padding: 5px;">
+                                    <textarea @bind="doc.DestinazioneDDT" rows="3" placeholder="potrebbe essere diverso da quello riportato in 'DESTINATARIO'"></textarea>
+                                </td>
+                                <td style="border-bottom: none; border-right: none; padding: 5px;">
+                                    <input @bind="doc.RagioneSocialeCompratore" list="partners-list" @bind:after="OnPartnerNameChanged" placeholder="Ragione sociale" style="font-weight: bold;" />
+                                    <input @bind="doc.IndirizzoCompratore" placeholder="Indirizzo" />
+                                    <div class="row g-0">
+                                        <div class="col-4">
+                                            <input @bind="doc.ContattoCompratore" placeholder="Contatto" />
+                                        </div>
+                                        <div class="col-4">
+                                            <input @bind="doc.PivaCompratore" placeholder="P.IVA" />
+                                        </div>
+                                        <div class="col-4">
+                                            <input @bind="doc.EmailCompratore" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    }
+                </td>
+            </tr>
+        </table>
+
+        @* INFO TABLE *@
+        @if (currentType != DocumentType.DocumentoTrasporto)
+        {
+            <table class="doc-header-table" style="margin-top: -21px;">
+                <tr class="sector-title">
+                    <td style="width: 25%;">Fattura n.</td>
+                    <td style="width: 25%;">Data fattura</td>
+                    <td style="width: 50%;">@(currentType == DocumentType.FatturaDifferita ? "Riferimento Documento di trasporto" : "")</td>
+                </tr>
+                <tr>
+                    <td><input @bind="doc.Numero" placeholder="n. fattura" style="text-align: center;" /></td>
+                    <td><input type="date" @bind="doc.Data" style="text-align: center;" /></td>
+                    <td>
+                        @if (currentType == DocumentType.FatturaDifferita) {
+                            <input @bind="doc.RifDDT" placeholder="riferimento ddt" />
+                        }
+                    </td>
+                </tr>
+                <tr class="sector-title">
+                    <td>Imballaggio</td>
+                    <td>Consegna</td>
+                    <td>Trasporto</td>
+                    <td>Pagamento</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0;">
+                        <input @bind="doc.ImballaggioModo" placeholder="Modo (pluriball, cartone, pallet, a vista)" />
+                        <input @bind="doc.ImballaggioSpesa" placeholder="Gratuito, a spesa del venditore, ..." />
+                    </td>
+                    <td style="padding: 0;">
+                        <input @bind="doc.ConsegnaTempi" placeholder="tempi, modi, eventuale vettore esterno" />
+                        <input @bind="doc.ConsegnaVettore" placeholder="eventuale nome vettore esterno" />
+                    </td>
+                    <td style="padding: 0;">
+                        <input @bind="doc.TrasportoModo" placeholder="come consegna" />
+                        <input @bind="doc.TrasportoSpesa" placeholder="Gratuito, Fatturato/Cliente, ..." />
+                    </td>
+                    <td style="padding: 0;">
+                        <input @bind="doc.PagamentoData" placeholder="data" />
+                        <input @bind="doc.PagamentoModo" placeholder="modo (tipo contanti)" />
+                    </td>
+                </tr>
+            </table>
+        }
+        else
+        {
+             <div style="text-align: right; font-size: 0.65rem; font-weight: bold; margin-bottom: 2px;">DOCUMENTO DI TRASPORTO (D.D.T.) D.P.R.472 DEL 14-08-1996</div>
+             <table class="doc-header-table" style="margin-top: 0;">
+                <tr class="sector-title">
+                    <td style="width: 25%;">Partita IVA o cod. fiscale</td>
+                    <td style="width: 25%;">DATA DDT</td>
+                    <td style="width: 25%;">N. DDT</td>
+                    <td style="width: 25%;">Casuale del trasporto</td>
+                </tr>
+                <tr>
+                    <td><input @bind="doc.PivaCompratore" placeholder="P.IVA destinatario" style="text-align: center;" /></td>
+                    <td><input type="date" @bind="doc.Data" style="text-align: center;" /></td>
+                    <td><input @bind="doc.Numero" placeholder="n. ddt" style="text-align: center;" /></td>
+                    <td><input @bind="doc.Causale" placeholder="motivo del trasporto" style="text-align: center;" /></td>
+                </tr>
+             </table>
+        }
+
+        @* ITEMS TABLE *@
+        <table class="items-table">
+            <thead>
+                <tr>
+                    @if (currentType != DocumentType.DocumentoTrasporto)
+                    {
+                        <th style="width: 10%;">Codice</th>
+                        <th style="width: 10%;">Quantità</th>
+                        <th style="width: 8%;">U.M.</th>
+                        <th>Descrizione della merce</th>
+                        <th style="width: 12%;">Prezzo unitario</th>
+                        <th style="width: 10%;">Aliquota IVA</th>
+                        <th style="width: 12%;">Importi</th>
+                    }
+                    else
+                    {
+                        <th style="width: 15%;">COD. ARTICOLO</th>
+                        <th style="width: 10%;">U.M.</th>
+                        <th style="width: 15%;">QUANTITA'</th>
+                        <th>DESCRIZIONE DELLA MERCE</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in doc.Righe)
+                {
+                    <tr style="@(item.Prezzo < 0 ? "color: #d32f2f; font-weight: bold;" : "")">
+                        @if (currentType != DocumentType.DocumentoTrasporto)
+                        {
+                            <td><input @bind="item.Codice" style="text-align: center;" /></td>
+                            <td><input type="number" @bind="item.Quantita" @bind:after="UpdateTotals" style="text-align: center; color: inherit;" /></td>
+                            <td><input @bind="item.UM" style="text-align: center; color: inherit;" /></td>
+                            <td><input @bind="item.Descrizione" list="prodotti-list" @bind:after="() => OnDescriptionChanged(item)" style="color: inherit;" /></td>
+                            <td><input type="number" step="0.01" @bind="item.Prezzo" @bind:after="UpdateTotals" style="text-align: right; color: inherit;" /></td>
+                            <td><input @bind="item.IVA" style="text-align: center; color: inherit;" /></td>
+                            <td style="text-align: right; background: #f8f8f8; position: relative; color: inherit;">
+                                @((item.Quantita * item.Prezzo).ToString("N2"))
+                                <div class="btn-remove d-print-none" style="position: absolute; left: -35px; top: 2px;" @onclick="() => { doc.Righe.Remove(item); UpdateTotals(); }">
+                                    <i class="bi bi-trash"></i>
+                                </div>
+                            </td>
+                        }
+                        else
+                        {
+                            <td><input @bind="item.Codice" style="text-align: center;" /></td>
+                            <td><input @bind="item.UM" style="text-align: center;" /></td>
+                            <td><input type="number" @bind="item.Quantita" style="text-align: center;" /></td>
+                            <td style="position: relative;">
+                                <input @bind="item.Descrizione" list="prodotti-list" @bind:after="() => OnDescriptionChanged(item)" />
+                                <div class="btn-remove d-print-none" style="position: absolute; right: -35px; top: 2px;" @onclick="() => doc.Righe.Remove(item)">
+                                    <i class="bi bi-trash"></i>
+                                </div>
+                            </td>
+                        }
+                    </tr>
+                }
+                @* Removed the 20 empty rows to follow user preference for a dynamic table *@
+            </tbody>
+        </table>
+        <div class="d-print-none text-center mt-2">
+            <button class="btn btn-sm btn-outline-secondary" @onclick="AddRiga">+ Aggiungi Riga Articolo</button>
+        </div>
+
+        @* FOOTER *@
+        @if (currentType != DocumentType.DocumentoTrasporto)
+        {
+            <table class="totals-table">
+                <tr>
+                    <td colspan="6" style="text-align: right; font-weight: bold; border-right: none;">IMPORTO MERCI</td>
+                    <td style="width: 12%; text-align: right; font-weight: bold; border-left: none;">€ @doc.ImportoMerci.ToString("N2")</td>
+                </tr>
+                <tr class="sector-title">
+                    <td style="width: 12%;">1° Sconto</td>
+                    <td style="width: 12%;">2° Sconto</td>
+                    <td style="width: 12%;">3° Sconto</td>
+                    <td style="width: 12%;">Spese aggiuntive</td>
+                    <td>Base imponibile</td>
+                    <td style="width: 10%;">Aliquota IVA</td>
+                    <td style="width: 12%;">IVA</td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td><input @bind="doc.Sconto1" @bind:after="UpdateTotals" style="text-align: center;" /></td>
+                    <td><input @bind="doc.Sconto2" @bind:after="UpdateTotals" style="text-align: center;" /></td>
+                    <td><input @bind="doc.Sconto3" @bind:after="UpdateTotals" style="text-align: center;" /></td>
+                    <td><input @bind="doc.SpeseAggiuntive" @bind:after="UpdateTotals" style="text-align: center;" /></td>
+                    <td class="bg-light">@doc.BaseImponibile.ToString("N2")</td>
+                    <td><input @bind="doc.IVA_Totale_Label" style="text-align: center;" /></td>
+                    <td class="bg-light">@doc.IVA_Valore.ToString("N2")</td>
+                </tr>
+                <tr style="text-align: center; font-size: 0.75rem; color: #555;">
+                    <td>€ @doc.Sconto1Val.ToString("N2")</td>
+                    <td>€ @doc.Sconto2Val.ToString("N2")</td>
+                    <td>€ @doc.Sconto3Val.ToString("N2")</td>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <td colspan="4" rowspan="2" style="vertical-align: top;">
+                        <span class="label-small">Note</span>
+                        <textarea @bind="doc.Note" rows="2" style="border:none; background:transparent;" placeholder="Note..."></textarea>
+                    </td>
+                    <td colspan="3" class="bg-highlight" style="text-align: center; height: 50px;">
+                        TOTALE FATTURA<br/>
+                        <span style="font-size:1.2rem;">€ @doc.Totale.ToString("N2")</span>
+                    </td>
+                </tr>
+            </table>
+            <div style="font-size: 0.6rem; text-align: center; margin-top: 5px;">Contributo Ambientale CONAI assolto</div>
+        }
+        else
+        {
+            <table class="totals-table">
+                <tr class="sector-title">
+                    <td>Trasporto a cura del</td>
+                    <td>Aspetto esteriore dei beni</td>
+                    <td>Colli</td>
+                    <td>Peso</td>
+                    <td style="width: 25%;">Firma mittente</td>
+                </tr>
+                <tr>
+                    <td><input @bind="doc.TrasportoA_Curade" placeholder="Mittente/Destinatario/Vettore/..." /></td>
+                    <td><input @bind="doc.AspettoBeni" placeholder="Pallet/Scatoloni/..." /></td>
+                    <td><input @bind="doc.Colli" placeholder="N di 'blocchi' di roba (eg: se usiamo gli scatoloni, il numero di scatoloni)" /></td>
+                    <td><input @bind="doc.Peso" placeholder="Peso" /></td>
+                    <td rowspan="3"></td>
+                </tr>
+                <tr class="sector-title">
+                    <td>Vettore</td>
+                    <td colspan="2">Data e ora ritiro</td>
+                    <td>Firma conducente</td>
+                </tr>
+                <tr>
+                    <td><input @bind="doc.VettoreNome" placeholder="Dati vettore" /></td>
+                    <td colspan="2"><input @bind="doc.RitiroDataOra" placeholder="Data e ora ritiro" /></td>
+                    <td></td>
+                </tr>
+                <tr class="sector-title">
+                    <td colspan="3">Data del trasporto</td>
+                    <td>Firma destinatario</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><input @bind="doc.TrasportoData" placeholder="Data del trasporto" /></td>
+                    <td></td>
+                </tr>
+            </table>
+        }
+
+    </div>
+
+    <datalist id="prodotti-list">
+        @foreach (var p in State.Prodotti)
+        {
+            <option value="@p.Nome">@p.PrezzoUnitario.ToString("C")</option>
+        }
+        @foreach (var i in State.Ingredienti)
+        {
+            <option value="@i.Nome">Mat. Prima - @i.UnitaMisura</option>
+        }
+    </datalist>
+
+    <datalist id="partners-list">
+        @foreach (var p in State.Partners)
+        {
+            <option value="@p.RagioneSociale">@p.PartitaIva</option>
+        }
+    </datalist>
+
+    <div class="text-center d-print-none pb-5">
+        @if (doc.ImportoMerci + doc.SpeseAggiuntive < 0) 
+        {
+            <div class="alert alert-danger mx-auto text-center mb-3" style="max-width: 850px;">
+                <i class="bi bi-exclamation-triangle"></i> IL TOTALE NON PUÒ ESSERE NEGATIVO. Rivedere i prezzi o gli sconti.
+            </div>
+        }
+        <button class="btn btn-secondary me-2 p-3" @onclick="GoBack">Indietro</button>
+        <button class="btn btn-success p-3 px-5 shadow fw-bold" disabled="@(doc.Totale <= 0 && doc.ImportoMerci != 0)" @onclick="SalvaESposta"><i class="bi bi-printer"></i> Salva e Stampa PDF</button>
+    </div>
+</div>
+
+@code {
+    private DocumentType currentType = DocumentType.FatturaImmediata;
+    private MockDoc doc = new MockDoc();
+
+    protected override void OnInitialized()
+    {
+        SetType(DocumentType.FatturaImmediata);
+    }
+
+    private void SetType(DocumentType type)
+    {
+        currentType = type;
+        doc = new MockDoc(); // Reset for demo
+        doc.AddEmptyRow();
+    }
+
+    private void AddRiga()
+    {
+        doc.Righe.Add(new MockRiga());
+    }
+
+    private void UpdateTotals()
+    {
+        doc.ImportoMerci = doc.Righe.Sum(r => r.Quantita * r.Prezzo);
+        
+        // Cascading Discounts Calculation
+        decimal val1 = ApplyDiscount(doc.ImportoMerci, doc.Sconto1);
+        doc.Sconto1Val = val1;
+        
+        decimal val2 = ApplyDiscount(val1, doc.Sconto2);
+        doc.Sconto2Val = val2;
+        
+        decimal val3 = ApplyDiscount(val2, doc.Sconto3);
+        doc.Sconto3Val = val3;
+        
+        doc.BaseImponibile = val3 + doc.SpeseAggiuntive;
+        doc.IVA_Valore = doc.BaseImponibile * 0.22m;
+        
+        // Ensure the total does not fall below 0 as per user request
+        decimal calcTotale = doc.BaseImponibile + doc.IVA_Valore;
+        doc.Totale = Math.Max(0, calcTotale);
+    }
+
+    private decimal ApplyDiscount(decimal amount, string discountStr)
+    {
+        if (string.IsNullOrWhiteSpace(discountStr)) return amount;
+        
+        string clean = discountStr.Replace("%", "").Replace(",", ".").Trim();
+        if (decimal.TryParse(clean, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out decimal perc))
+        {
+            return amount * (1 - (perc / 100));
+        }
+        return amount;
+    }
+
+    private void OnDescriptionChanged(MockRiga item)
+    {
+        // Search in Products
+        var prod = State.Prodotti.FirstOrDefault(p => p.Nome.Equals(item.Descrizione, StringComparison.OrdinalIgnoreCase));
+        if (prod != null)
+        {
+            item.Codice = prod.Id.ToString().Substring(0, 8).ToUpper();
+            item.Prezzo = prod.PrezzoUnitario;
+            item.UM = prod.UnitaMisura;
+            item.IVA = prod.AliquotaIva + "%";
+        }
+        else
+        {
+            // Search in Ingredients
+            var ing = State.Ingredienti.FirstOrDefault(i => i.Nome.Equals(item.Descrizione, StringComparison.OrdinalIgnoreCase));
+            if (ing != null)
+            {
+                item.Codice = ing.Id.ToString().Substring(0, 8).ToUpper();
+                item.UM = ing.UnitaMisura;
+                item.Prezzo = 0; // Prezzo defaults to zero for raw mat if not found in products
+            }
+        }
+        UpdateTotals();
+    }
+
+    private void OnPartnerNameChanged()
+    {
+        var partner = State.Partners.FirstOrDefault(p => p.RagioneSociale.Equals(doc.RagioneSocialeCompratore, StringComparison.OrdinalIgnoreCase));
+        if (partner != null)
+        {
+            doc.IndirizzoCompratore = partner.IndirizzoSedeLegale;
+            doc.PivaCompratore = partner.PartitaIva;
+            doc.EmailCompratore = partner.Email;
+        }
+    }
+
+    private void GoBack() => NavManager.NavigateTo("/");
+
+    private async Task SalvaESposta()
+    {
+        // Here we would transform MockDoc to real Documento model if integration is needed
+        await JSRuntime.InvokeVoidAsync("window.print");
+    }
+
+    public class MockDoc
+    {
+        public string RagioneSocialeCompratore { get; set; } = "";
+        public string IndirizzoCompratore { get; set; } = "";
+        public string ContattoCompratore { get; set; } = "";
+        public string PivaCompratore { get; set; } = "";
+        public string EmailCompratore { get; set; } = "";
+        public string Numero { get; set; } = "1/2026";
+        public DateTime Data { get; set; } = DateTime.Today;
+        public string RifDDT { get; set; } = "";
+        
+        public string ImballaggioModo { get; set; } = "";
+        public string ImballaggioSpesa { get; set; } = "";
+        public string ConsegnaTempi { get; set; } = "";
+        public string ConsegnaVettore { get; set; } = "";
+        public string TrasportoModo { get; set; } = "";
+        public string TrasportoSpesa { get; set; } = "";
+        public string PagamentoData { get; set; } = "";
+        public string PagamentoModo { get; set; } = "";
+        
+        public string DestinazioneDDT { get; set; } = "";
+        public string Causale { get; set; } = "";
+        public string TrasportoA_Curade { get; set; } = "";
+        public string AspettoBeni { get; set; } = "";
+        public string Colli { get; set; } = "";
+        public string Peso { get; set; } = "";
+        public string VettoreNome { get; set; } = "";
+        public string RitiroDataOra { get; set; } = "";
+        public string TrasportoData { get; set; } = "";
+
+        public List<MockRiga> Righe { get; set; } = new();
+        
+        public decimal ImportoMerci { get; set; }
+        public string Sconto1 { get; set; } = "0%";
+        public decimal Sconto1Val { get; set; }
+        public string Sconto2 { get; set; } = "0%";
+        public decimal Sconto2Val { get; set; }
+        public string Sconto3 { get; set; } = "0%";
+        public decimal Sconto3Val { get; set; }
+        public decimal SpeseAggiuntive { get; set; }
+        public decimal BaseImponibile { get; set; }
+        public string IVA_Totale_Label { get; set; } = "22%";
+        public decimal IVA_Valore { get; set; }
+        public decimal Totale { get; set; }
+        public string Note { get; set; } = "";
+
+        public void AddEmptyRow() => Righe.Add(new MockRiga());
+    }
+
+    public class MockRiga
+    {
+        public string Codice { get; set; } = "";
+        public int Quantita { get; set; } = 1;
+        public string UM { get; set; } = "Pz";
+        public string Descrizione { get; set; } = "";
+        public decimal Prezzo { get; set; }
+        public string IVA { get; set; } = "22%";
+    }
+}

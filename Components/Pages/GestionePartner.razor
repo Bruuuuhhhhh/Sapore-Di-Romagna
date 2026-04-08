@@ -1,0 +1,119 @@
+@page "/partner"
+@inject SaporeDiRomagna.Data.AppState State
+
+<h1 class="mb-4">Partner</h1>
+
+<div class="d-flex justify-content-between mb-3">
+    <button class="btn btn-primary" @onclick="() => isAdding = true">
+        <i class="bi bi-plus-lg"></i> Nuovo Partner
+    </button>
+</div>
+
+@if (isAdding || editingPartner != null)
+{
+    var currentPartner = editingPartner ?? newPartner;
+
+    <div class="card p-4 mb-4" style="border-top: 4px solid var(--primary-color);">
+        <h5>@(isAdding ? "Aggiungi" : "Modifica") Partner</h5>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Ragione Sociale</label>
+                <input class="form-control" @bind="currentPartner.RagioneSociale" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Partita IVA</label>
+                <input class="form-control" @bind="currentPartner.PartitaIva" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Sede Legale</label>
+                <input class="form-control" @bind="currentPartner.IndirizzoSedeLegale" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Email / PEC</label>
+                <input type="email" class="form-control" @bind="currentPartner.Email" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Tipo Partner</label>
+                <select class="form-select" @bind="currentPartner.Tipo">
+                    @foreach (var type in Enum.GetValues<PartnerType>())
+                    {
+                        <option value="@type">@type</option>
+                    }
+                </select>
+            </div>
+            <div class="col-12 text-end mt-3">
+                <button class="btn btn-secondary me-2" @onclick="CancelEdit">Annulla</button>
+                <button class="btn btn-primary" @onclick="SavePartner">Salva</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="table-glass">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ragione Sociale</th>
+                <th>P.IVA</th>
+                <th>Sede Legale</th>
+                <th>Email</th>
+                <th>Tipo</th>
+                <th>Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in State.Partners)
+            {
+                <tr>
+                    <td>@p.RagioneSociale</td>
+                    <td>@p.PartitaIva</td>
+                    <td>@p.IndirizzoSedeLegale</td>
+                    <td>@p.Email</td>
+                    <td><span class="badge bg-secondary">@p.Tipo</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-primary" @onclick="() => Edit(p)"><i class="bi bi-pencil"></i> Modifica</button>
+                        <button class="btn btn-sm btn-outline-danger ms-1" @onclick="() => DeletePartner(p)" title="Elimina"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    private bool isAdding = false;
+    private Partner newPartner = new();
+    private Partner? editingPartner = null;
+
+    private void SavePartner()
+    {
+        if (isAdding)
+        {
+            State.Partners.Add(newPartner);
+            newPartner = new();
+            isAdding = false;
+        }
+        else
+        {
+            editingPartner = null;
+        }
+    }
+
+    private void Edit(SaporeDiRomagna.Data.Partner p)
+    {
+        editingPartner = p;
+        isAdding = false;
+    }
+
+    private void DeletePartner(SaporeDiRomagna.Data.Partner p)
+    {
+        State.Partners.Remove(p);
+    }
+
+    private void CancelEdit()
+    {
+        isAdding = false;
+        editingPartner = null;
+        newPartner = new();
+    }
+}

@@ -1,0 +1,370 @@
+@page "/menu"
+@inject SaporeDiRomagna.Data.AppState State
+@inject IJSRuntime JSRuntime
+@rendermode InteractiveServer
+
+<h1 class="mb-4 d-print-none" style="color: var(--primary-color);">Gestione Menù Ristorante</h1>
+
+@if (ShowPreview)
+{
+    <!-- Sezione Anteprima Stampa -->
+    <div class="print-area-wrapper d-print-inline">
+        <div class="print-area bg-white p-5 mx-auto shadow" style="max-width: 800px; min-height: 1100px; color: #333; font-family: Georgia, serif;">
+            <div class="text-center mb-5">
+            <img src="/img/logo.png" alt="Logo" style="max-width: 250px; margin-bottom: 20px;" />
+            <h2 style="color: var(--primary-color); font-weight: bold; font-family: 'Inter', sans-serif; letter-spacing: 2px; text-transform: uppercase;">@State.DatiAziendali.BrandName</h2>
+            <p class="text-muted fst-italic" style="letter-spacing: 1px;">IL NOSTRO MENU KM 0</p>
+        </div>
+
+        @foreach (var cat in Ufficiali.Select(p => p.CategoriaMenu).Distinct().OrderBy(GetCategoryOrder))
+        {
+            <div class="menu-category mt-5 mb-4 px-3">
+                <h4 class="text-center text-uppercase pb-1 mb-4" style="color: var(--secondary-color); font-weight: bold; letter-spacing: 3px; position: relative;">
+                    @cat
+                    <span style="display: block; width: 60px; height: 1px; background-color: var(--accent-color); margin: 10px auto 0;"></span>
+                </h4>
+                
+                @foreach (var dish in Ufficiali.Where(p => p.CategoriaMenu == cat))
+                {
+                    <div class="d-flex align-items-center mb-3">
+                        <div style="flex-shrink: 0; max-width: 70%;">
+                            <h5 class="mb-0" style="color: var(--primary-color); font-weight: bold; text-transform: capitalize;">@dish.Nome</h5>
+                            <small class="fst-italic" style="color: #666; font-size: 0.85em; display: block; line-height: 1.1;">
+                                @if (RichiedeIngredienti(dish.CategoriaMenu))
+                                {
+                                    <b>Ingredienti:</b> @GetNomiIngredienti(dish.IngredientiIds)
+                                }
+                                @if (!string.IsNullOrWhiteSpace(dish.Descrizione))
+                                {
+                                    <br/><span>@dish.Descrizione</span>
+                                }
+                            </small>
+                        </div>
+                        <div style="flex-grow: 1; border-bottom: 2px dotted #ccc; margin: 0 10px; height: 1px; align-self: end; margin-bottom: 8px;"></div>
+                        <div style="flex-shrink: 0; font-weight: bold; font-size: 1.1rem; color: #111; text-align: right; min-width: 65px;">
+                            € @dish.PrezzoUnitario.ToString("0.00")
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        
+        <div class="text-center mt-5 pt-5 border-light text-muted small" style="border-top: 1px solid #eee;">
+            Coperto 1,50 €<br/>
+            In caso di allergie o intolleranze rivolgersi al personale di sala.<br/>
+            <small style="font-size: 0.7em;">I prodotti potrebbero variare in base alla disponibilità stagionale.</small>
+        </div>
+        </div>
+    </div>
+    
+    <div class="d-print-none text-center mt-4 mb-5">
+        <button class="btn btn-secondary me-2 p-3" @onclick="() => ShowPreview = false">Torna alla Gestione Menu</button>
+        <button class="btn btn-outline-success p-3 fw-bold" @onclick="PrintPdf" style="background-color: var(--accent-color); color: white; border: none;"><i class="bi bi-printer"></i> Esporta in PDF per la Stampa</button>
+    </div>
+}
+else
+{
+    <div class="d-print-none">
+        <!-- Azioni Principali -->
+        <div class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded shadow-sm border" style="border-left: 5px solid var(--accent-color) !important;">
+            <div>
+                <p class="mb-0 text-muted small">I piatti ufficiali sono visibili qui sotto, suddivisi per categoria. Passa a "In Valutazione" i piatti che vuoi disabilitare temporaneamente.</p>
+            </div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-primary" style="background-color: var(--primary-color); border: none;" @onclick="() => isAdding = true">
+                    <i class="bi bi-plus-lg"></i> Inserisci Pietanza
+                </button>
+                <button class="btn px-4" style="background-color: var(--accent-color); color: white; border: none; font-weight: 500;" @onclick="() => ShowPreview = true">
+                    <i class="bi bi-eye"></i> Stampa Menù PDF
+                </button>
+            </div>
+        </div>
+
+        @if (isAdding || editingItem != null)
+        {
+            var currentItem = editingItem ?? newItem;
+
+            <div class="card p-4 mb-4 shadow-sm border-0" style="border-top: 4px solid var(--primary-color);">
+                <h5 style="color: var(--primary-color);"><i class="bi bi-egg-fried"></i> @(isAdding ? "Aggiungi" : "Modifica") Pietanza</h5>
+                <p class="small text-muted mb-4">Componi il piatto associando gli ingredienti della dispensa. Gli ingredienti sono visibili al cliente e <b>obbligatori</b> per la tracciabilità.</p>
+                
+                <div class="row g-4 mt-1">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold text-dark small mb-1">Nome Piatto</label>
+                        <input class="form-control" @bind="currentItem.Nome" />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold text-dark small mb-1">Prezzo (€)</label>
+                        <input type="number" step="0.50" class="form-control" @bind="currentItem.PrezzoUnitario" />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold text-dark small mb-1">Categoria</label>
+                        <select class="form-select" @bind="currentItem.CategoriaMenu">
+                            <option value="Antipasti">Antipasti</option>
+                            <option value="Primi">Primi</option>
+                            <option value="Secondi">Secondi</option>
+                            <option value="Contorni">Contorni</option>
+                            <option value="Pizze">Pizze</option>
+                            <option value="Piadine e Crescioni">Piadine e Crescioni</option>
+                            <option value="Dolci">Dolci</option>
+                            <option value="Vini">Vini</option>
+                            <option value="Bevande">Bevande</option>
+                            <option value="Caffetteria">Caffetteria</option>
+                            <option value="Da Assegnare">Da Assegnare</option>
+                        </select>
+                    </div>
+
+                    @if (RichiedeIngredienti(currentItem.CategoriaMenu))
+                    {
+                        <div class="col-md-12">
+                            <label class="form-label fw-bold text-dark small mb-2 d-block border-bottom pb-1">Seleziona Ingredienti Obbligatori (dalla Dispensa)</label>
+                            <div class="row g-1">
+                                @foreach(var ingrediente in State.Ingredienti.OrderBy(i => i.Nome))
+                                {
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-check">
+                                            <!-- Simulazione Checkbox con OnChange. In Blazor Server è meglio usare un bind method -->
+                                            @{ var hasIng = currentItem.IngredientiIds.Contains(ingrediente.Id); }
+                                            <input class="form-check-input" type="checkbox" id="ing_@ingrediente.Id" checked="@hasIng" @onchange="@(e => ToggleIngrediente(currentItem, ingrediente.Id, (bool)(e.Value ?? false)))">
+                                            <label class="form-check-label text-muted" for="ing_@ingrediente.Id" style="font-size: 0.9em;">
+                                                @ingrediente.Nome
+                                            </label>
+                                        </div>
+                                    </div>
+                                }
+                                @if(!State.Ingredienti.Any())
+                                {
+                                    <div class="text-danger small">Attenzione: La dispensa è vuota! Vai nel modulo "Magazzino & Dispensa" per inserire gli ingredienti primi.</div>
+                                }
+                            </div>
+                            @if (showIngredientError)
+                            {
+                                <div class="text-danger small mt-2 fw-bold"><i class="bi bi-exclamation-triangle"></i> Errore: Devi selezionare almeno un ingrediente!</div>
+                            }
+                        </div>
+                    }
+
+                    <div class="col-md-8">
+                        <label class="form-label fw-bold text-dark small mb-1">Descrizione Lunga (Opzionale, Note aggiuntive)</label>
+                        <input class="form-control" @bind="currentItem.Descrizione" placeholder="es. Consigliato per celiaci, Ricetta del nonno, ecc..." />
+                    </div>
+                    
+                    <div class="col-md-4 d-flex align-items-center">
+                        <div class="form-check form-switch mt-4 p-3 bg-light rounded border w-100">
+                            <input class="form-check-input ms-0 me-2" type="checkbox" id="inMenuSwitch" @bind="currentItem.InMenu">
+                            <label class="form-check-label fw-bold @(currentItem.InMenu ? "text-success" : "text-muted")" for="inMenuSwitch">
+                                @(currentItem.InMenu ? "Visibile ai clienti" : "A blocchetto / Appunti")
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 text-end mt-4 pt-3 border-top">
+                        <button class="btn btn-outline-secondary me-2 px-4" @onclick="CancelEdit">Annulla</button>
+                        <button class="btn px-4 text-white" style="background-color: var(--primary-color); border: none;" @onclick="SaveItem">Salva Piatto</button>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="row g-4">
+            <!-- Colonna Sinistra: Menù Ufficiale Suddiviso -->
+            <div class="col-lg-7">
+                <h5 class="mb-3" style="color: var(--secondary-color);"><i class="bi bi-card-list"></i> Piatti in Menù, divisi per Tipologia</h5>
+                @if (!Ufficiali.Any())
+                {
+                    <div class="card border-0 shadow-sm p-5 text-center text-muted">Aggiungi piatti al menù ufficiale per vederli apparire qui!</div>
+                }
+                
+                @foreach (var cat in Ufficiali.Select(p => p.CategoriaMenu).Distinct().OrderBy(GetCategoryOrder))
+                {
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header border-0 d-flex justify-content-between align-items-center" style="background-color: var(--primary-color); color: white;">
+                            <h6 class="mb-0 fw-bold text-uppercase text-white">@cat</h6>
+                            <span class="badge bg-white" style="color: var(--primary-color);">@Ufficiali.Count(p => p.CategoriaMenu == cat) piatti</span>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush">
+                                @foreach (var dish in Ufficiali.Where(p => p.CategoriaMenu == cat))
+                                {
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                        <div>
+                                            <strong style="color: var(--secondary-color); font-size: 1.05rem;">@dish.Nome</strong>
+                                            <div class="text-success fw-bold">€ @dish.PrezzoUnitario.ToString("0.00")</div>
+                                            <div class="small text-muted mt-1" style="font-size: 0.8rem;">
+                                                @if (RichiedeIngredienti(dish.CategoriaMenu))
+                                                {
+                                                    <span><i class="bi bi-box-seam"></i> @GetNomiIngredienti(dish.IngredientiIds)<br/></span>
+                                                }
+                                                @if(!string.IsNullOrEmpty(dish.Descrizione)){ <i>Nota: @dish.Descrizione</i> }
+                                            </div>
+                                        </div>
+                                        <div class="pe-2 text-end text-nowrap">
+                                            <button class="btn btn-sm text-secondary" style="border: 1px solid #ccc; background: white;" @onclick="() => Edit(dish)" title="Modifica"><i class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-outline-secondary ms-1" @onclick="() => dish.InMenu = false" title="Togli dal Menù (Sposta in Valutazione)"><i class="bi bi-eye-slash"></i> Sospendi</button>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <!-- Colonna Destra: In Valutazione (Bozze) -->
+            <div class="col-lg-5">
+                <h5 class="mb-3 text-muted"><i class="bi bi-hourglass-bottom"></i> In Valutazione / Sospesi</h5>
+                <div class="card border-0 shadow-sm" style="background-color: #f7f5f2;">
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush bg-transparent">
+                            @foreach (var p in InValutazione)
+                            {
+                                <li class="list-group-item bg-transparent d-flex justify-content-between align-items-center p-3">
+                                    <div>
+                                        <div class="d-flex align-items-center mb-1">
+                                            <strong class="me-2 text-dark">@p.Nome</strong> 
+                                            <span class="badge" style="background-color: var(--secondary-color);">@p.CategoriaMenu</span>
+                                        </div>
+                                        <div class="small text-muted" style="font-size: 0.8rem; line-height: 1.2;">
+                                            @if (RichiedeIngredienti(p.CategoriaMenu))
+                                            {
+                                                <span>Ingredienti: @GetNomiIngredienti(p.IngredientiIds)</span>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="text-end text-nowrap ms-3 d-flex flex-column gap-1">
+                                        <button class="btn btn-sm btn-outline-success border-0 fw-bold" @onclick="() => p.InMenu = true" title="Inserisci in Menù Ufficiale">Metto in Menù <i class="bi bi-arrow-left"></i></button>
+                                        <div>
+                                            <button class="btn btn-sm text-secondary" style="border: 1px solid #ccc; background: white;" @onclick="() => Edit(p)"><i class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger ms-1" @onclick="() => Delete(p)" title="Elimina del tutto"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                            @if (!InValutazione.Any())
+                            {
+                                <li class="list-group-item bg-transparent text-center p-4 text-muted small">Nessun piatto chiuso nel cassetto.</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    @@media print {
+        body { background-color: white !important; }
+        .d-print-none { display: none !important; }
+        .print-area { box-shadow: none !important; margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+        .sidebar, .sidebar-overlay { display: none !important; }
+        main { margin-left: 0 !important; padding: 0 !important; }
+        .top-row { display: none !important; }
+        .content { padding: 0 !important; }
+        @@page { size: auto; margin: 15mm 20mm; }
+    }
+</style>
+
+@code {
+    private bool isAdding = false;
+    private bool ShowPreview = false;
+    private bool showIngredientError = false;
+    private SaporeDiRomagna.Data.Prodotto newItem = new() { InMenu = true };
+    private SaporeDiRomagna.Data.Prodotto? editingItem = null;
+
+    private IEnumerable<SaporeDiRomagna.Data.Prodotto> Ufficiali => State.Prodotti.Where(p => p.InMenu);
+    private IEnumerable<SaporeDiRomagna.Data.Prodotto> InValutazione => State.Prodotti.Where(p => !p.InMenu);
+
+    private int GetCategoryOrder(string cat)
+    {
+        return cat switch
+        {
+            "Antipasti" => 1,
+            "Primi" => 2,
+            "Secondi" => 3,
+            "Contorni" => 4,
+            "Pizze" => 5,
+            "Piadine e Crescioni" => 6,
+            "Dolci" => 7,
+            "Vini" => 8,
+            "Bevande" => 9,
+            "Caffetteria" => 10,
+            _ => 99
+        };
+    }
+
+    private bool RichiedeIngredienti(string cat)
+    {
+        return cat != "Vini" && cat != "Bevande" && cat != "Caffetteria" && cat != "Da Assegnare";
+    }
+
+    private string GetNomiIngredienti(List<Guid> ids)
+    {
+        if(ids == null || !ids.Any()) return "Nessuno";
+        
+        var nomi = State.Ingredienti.Where(i => ids.Contains(i.Id)).Select(i => i.Nome);
+        return string.Join(", ", nomi);
+    }
+
+    private void ToggleIngrediente(SaporeDiRomagna.Data.Prodotto piatto, Guid ingId, bool isChecked)
+    {
+        if (isChecked && !piatto.IngredientiIds.Contains(ingId))
+        {
+            piatto.IngredientiIds.Add(ingId);
+        }
+        else if (!isChecked && piatto.IngredientiIds.Contains(ingId))
+        {
+            piatto.IngredientiIds.Remove(ingId);
+        }
+    }
+
+    private void SaveItem()
+    {
+        var currentItem = editingItem ?? newItem;
+        
+        // Controllo Obbligatorio Ingredienti SOLO per i veri piatti
+        if (RichiedeIngredienti(currentItem.CategoriaMenu) && !currentItem.IngredientiIds.Any())
+        {
+            showIngredientError = true;
+            return;
+        }
+        
+        showIngredientError = false;
+
+        if (isAdding)
+        {
+            State.Prodotti.Add(newItem);
+            newItem = new() { InMenu = true };
+            isAdding = false;
+        }
+        else
+        {
+            editingItem = null;
+        }
+    }
+
+    private void Edit(SaporeDiRomagna.Data.Prodotto p)
+    {
+        editingItem = p;
+        isAdding = false;
+        showIngredientError = false;
+    }
+
+    private void Delete(SaporeDiRomagna.Data.Prodotto p)
+    {
+        State.Prodotti.Remove(p);
+    }
+
+    private void CancelEdit()
+    {
+        isAdding = false;
+        editingItem = null;
+        newItem = new() { InMenu = true };
+        showIngredientError = false;
+    }
+
+    private async Task PrintPdf()
+    {
+        await JSRuntime.InvokeVoidAsync("window.print");
+    }
+}

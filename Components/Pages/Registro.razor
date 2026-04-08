@@ -1,0 +1,217 @@
+@page "/registro"
+@using Microsoft.AspNetCore.Components.Forms
+@inject SaporeDiRomagna.Data.AppState State
+@rendermode InteractiveServer
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Registro Acquisti e Vendite</h1>
+    <button class="btn btn-primary shadow-sm" @onclick="PrepareNewDoc">
+        <i class="bi bi-cloud-upload me-2"></i> Carica Documento
+    </button>
+</div>
+
+<ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link @(activeTab == "vendite" ? "active" : "")" @onclick='() => activeTab = "vendite"'>Registro Vendite</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link @(activeTab == "acquisti" ? "active" : "")" @onclick='() => activeTab = "acquisti"'>Registro Acquisti</button>
+    </li>
+</ul>
+
+@if (showUploadModal)
+{
+    <div class="modal fade show d-block" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 15px;">
+                <div class="modal-header bg-light" style="border-radius: 15px 15px 0 0;">
+                    <h5 class="modal-title fw-bold text-primary">@(isEditing ? "Modifica Documento" : "Carica Nuovo Documento")</h5>
+                    <button type="button" class="btn-close" @onclick="() => showUploadModal = false"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">Tipo Documento</label>
+                        <select class="form-select border-2" @bind="selectedDoc.IsAcquisto">
+                            <option value="false">Vendita (Fattura emessa)</option>
+                            <option value="true">Acquisto (Fattura ricevuta)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="row g-3 mb-3">
+                        <div class="col-6">
+                            <label class="form-label text-muted small fw-bold">Data</label>
+                            <input type="date" class="form-control border-2" @bind="selectedDoc.Data" @bind:format="yyyy-MM-dd" />
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label text-muted small fw-bold">Numero</label>
+                            <input type="text" class="form-control border-2" @bind="selectedDoc.NumeroDocumento" placeholder="es. 123/A" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">Somma Totale (€)</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-2 border-end-0">€</span>
+                            <input type="number" step="0.01" class="form-control border-2 border-start-0" @bind="selectedDoc.TotaleFattura" placeholder="0.00" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">Partner / Fornitore</label>
+                        <select class="form-select border-2" @bind="selectedDoc.PartnerId">
+                            <option value="@Guid.Empty">Seleziona un partner...</option>
+                            @foreach (var p in State.Partners)
+                            {
+                                <option value="@p.Id">@p.RagioneSociale</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label text-muted small fw-bold">Seleziona File (PDF, PNG, JPG)</label>
+                        <InputFile OnChange="HandleFileSelected" class="form-control border-2" />
+                        @if (!string.IsNullOrEmpty(selectedDoc.UploadedFileName))
+                        {
+                            <div class="mt-2 small text-success"><i class="bi bi-check-circle-fill"></i> @selectedDoc.UploadedFileName selezionato</div>
+                        }
+                    </div>
+
+                    <button class="btn btn-primary w-100 py-3 fw-bold shadow" @onclick="SaveDoc" disabled="@(selectedDoc.TotaleFattura <= 0 || string.IsNullOrEmpty(selectedDoc.UploadedFileName))">
+                        <i class="bi bi-save me-2"></i> @(isEditing ? "Salva Modifiche" : "Registra Documento")
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="table-glass shadow-sm rounded-4 overflow-hidden border-0">
+    <table class="table table-hover align-middle mb-0">
+        <thead class="bg-light">
+            <tr>
+                <th class="ps-4">Data</th>
+                <th>Tipo</th>
+                <th>Numero</th>
+                <th>Partner</th>
+                <th class="text-end">Somma Totale</th>
+                <th class="text-center">Doc</th>
+                <th class="text-center">Stato</th>
+                <th class="text-center pe-4">Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var doc in GetFilteredDocs())
+            {
+                <tr>
+                    <td class="ps-4">@doc.Data.ToShortDateString()</td>
+                    <td>
+                        @if (doc.TipoDocumento == DocumentType.DocumentoEsterno)
+                        {
+                            <span class="badge bg-info text-dark">Esterno</span>
+                        }
+                        else
+                        {
+                            <span class="text-muted small">@doc.TipoDocumento</span>
+                        }
+                    </td>
+                    <td>@doc.NumeroDocumento</td>
+                    <td>@(State.Partners.FirstOrDefault(p => p.Id == doc.PartnerId)?.RagioneSociale ?? "Privato / Altro")</td>
+                    <td class="text-end fw-bold">@doc.TotaleFattura.ToString("C")</td>
+                    <td class="text-center">
+                        @if (!string.IsNullOrEmpty(doc.UploadedFileName))
+                        {
+                            <i class="bi bi-file-earmark-pdf text-danger h5 mb-0 cursor-pointer" title="@doc.UploadedFileName"></i>
+                        }
+                        else
+                        {
+                            <span class="text-muted fs-7">Generato</span>
+                        }
+                    </td>
+                    <td class="text-center">
+                        @if (doc.StatusPagato)
+                        {
+                            <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">Saldato</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-3 py-2 rounded-pill cursor-pointer" @onclick="() => doc.StatusPagato = true" title="Clicca per segnare come saldato">Da Saldare</span>
+                        }
+                    </td>
+                    <td class="text-center pe-4">
+                        <div class="btn-group btn-group-sm shadow-sm rounded-3 overflow-hidden">
+                            <button class="btn btn-white text-primary border-end" title="Modifica" @onclick="() => StartEdit(doc)">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-white text-danger" title="Elimina" @onclick="() => DeleteDoc(doc)">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+            @if (!GetFilteredDocs().Any())
+            {
+                <tr><td colspan="8" class="text-center py-5 text-muted">Nessun documento trovato in questo registro.</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    private string activeTab = "vendite";
+    private bool showUploadModal = false;
+    private bool isEditing = false;
+    private Documento selectedDoc = new() { TipoDocumento = DocumentType.DocumentoEsterno };
+
+    private IEnumerable<Documento> GetFilteredDocs()
+    {
+        bool isAcquisto = activeTab == "acquisti";
+        return State.Documenti
+            .Where(d => d.IsAcquisto == isAcquisto)
+            .OrderByDescending(d => d.Data);
+    }
+
+    private void PrepareNewDoc()
+    {
+        isEditing = false;
+        selectedDoc = new() { 
+            TipoDocumento = DocumentType.DocumentoEsterno,
+            Data = DateTime.Today,
+            IsAcquisto = activeTab == "acquisti"
+        };
+        showUploadModal = true;
+    }
+
+    private void StartEdit(Documento doc)
+    {
+        isEditing = true;
+        selectedDoc = doc;
+        showUploadModal = true;
+    }
+
+    private void DeleteDoc(Documento doc)
+    {
+        State.Documenti.Remove(doc);
+    }
+
+    private void HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file != null)
+        {
+            selectedDoc.UploadedFileName = file.Name;
+        }
+    }
+
+    private void SaveDoc()
+    {
+        if (selectedDoc.TotaleFattura > 0 && !string.IsNullOrEmpty(selectedDoc.UploadedFileName))
+        {
+            if (!isEditing)
+            {
+                State.Documenti.Add(selectedDoc);
+            }
+            showUploadModal = false;
+        }
+    }
+}

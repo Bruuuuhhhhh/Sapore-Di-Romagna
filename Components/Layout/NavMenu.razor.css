@@ -1,0 +1,10 @@
+/* Pulizia stili default Blazor - Tutto gestito in app.css */
+
+.nav-item {
+    font-size: 0.9rem;
+}
+
+/* Rimosso background-color: rgba(0,0,0,0.4) su top-row e link di default */
+::deep .nav-link {
+    transition: all 0.2s ease;
+}
