@@ -355,8 +355,8 @@ public class AppState
         Documenti.Add(new Documento { NumeroDocumento = "2", Data = new DateTime(2026, 04, 17), TipoDocumento = DocumentType.FatturaImmediata, PartnerId = Partners[1].Id, IsAcquisto = false, TotaleFattura = new decimal(379.39), UploadedFileName="Fattura Cena La Fabbrica del Gusto.pdf" });
         Documenti.Add(new Documento { NumeroDocumento = "3", Data = new DateTime(2026, 04, 13), TipoDocumento = DocumentType.FatturaImmediata, PartnerId = Partners[3].Id, IsAcquisto = false, TotaleFattura = new decimal(1235.52), UploadedFileName="Fattura Cena Hermes.pdf" });
         Documenti.Add(new Documento { NumeroDocumento = "4", Data = new DateTime(2026, 04, 08), TipoDocumento = DocumentType.FatturaImmediata, PartnerId = Partners[0].Id, IsAcquisto = true, TotaleFattura = new decimal(38.22), UploadedFileName="FATTURA PER RISTORAZIONE naturalia.pdf" });
-        Documenti.Add(new Documento { NumeroDocumento = "5", Data = new DateTime(2026, 04, 08), TipoDocumento = DocumentType.FatturaDifferita, PartnerId = Partners[2].Id, IsAcquisto = true, TotaleFattura = new decimal(768.86), UploadedFileName="FATTURA PER RISTORAZIONE naturalia.pdf" });
-        Documenti.Add(new Documento { NumeroDocumento = "4", Data = new DateTime(2026, 04, 08), TipoDocumento = DocumentType.FatturaImmediata, PartnerId = Partners[0].Id, IsAcquisto = true, TotaleFattura = new decimal(38.22), UploadedFileName="sapori_romagna_fattura" });
+        Documenti.Add(new Documento { NumeroDocumento = "5", Data = new DateTime(2026, 04, 08), TipoDocumento = DocumentType.FatturaDifferita, PartnerId = Partners[2].Id, IsAcquisto = true, TotaleFattura = new decimal(768.86), UploadedFileName="sapori_romagna_fattura.pdf" });
+        Documenti.Add(new Documento { NumeroDocumento = "6", Data = new DateTime(2026, 04, 08), TipoDocumento = DocumentType.DocumentoTrasporto, PartnerId = Partners[2].Id, IsAcquisto = true, UploadedFileName="sapori_romagna_DDT.pdf" });
         
         
     }
