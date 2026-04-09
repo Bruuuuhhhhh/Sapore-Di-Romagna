@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kchwzZC/w5E=",
+  "dgSpecHash": "XRvAPMPtowA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\alessandro.crepaldi\\Desktop\\aah\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj",
+  "projectFilePath": "C:\\Users\\alessandro.crepaldi\\Desktop\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alessandro.crepaldi\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.1\\microsoft.aspnetcore.app.internal.assets.10.0.1.nupkg.sha512"
   ],

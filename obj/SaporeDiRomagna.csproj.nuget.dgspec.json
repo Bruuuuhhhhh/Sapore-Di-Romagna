@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alessandro.crepaldi\\Desktop\\aah\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj": {}
+    "C:\\Users\\alessandro.crepaldi\\Desktop\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alessandro.crepaldi\\Desktop\\aah\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj": {
+    "C:\\Users\\alessandro.crepaldi\\Desktop\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alessandro.crepaldi\\Desktop\\aah\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj",
+        "projectUniqueName": "C:\\Users\\alessandro.crepaldi\\Desktop\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj",
         "projectName": "SaporeDiRomagna",
-        "projectPath": "C:\\Users\\alessandro.crepaldi\\Desktop\\aah\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj",
+        "projectPath": "C:\\Users\\alessandro.crepaldi\\Desktop\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj",
         "packagesPath": "C:\\Users\\alessandro.crepaldi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alessandro.crepaldi\\Desktop\\aah\\Sapore-Di-Romagna\\obj\\",
+        "outputPath": "C:\\Users\\alessandro.crepaldi\\Desktop\\Sapore-Di-Romagna\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

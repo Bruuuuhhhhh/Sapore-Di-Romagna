@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SaporeDiRomagna")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0392ad12d37e10173887ee1eddd3fa4d651cfb39")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aafc9f7c0e1e39c8901f45fef8c94e0009c6814b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SaporeDiRomagna")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SaporeDiRomagna")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
