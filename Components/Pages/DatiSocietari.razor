@@ -48,6 +48,11 @@
                             <label class="form-label text-muted small">Codice Destinatario (SDI)</label>
                             <InputText class="form-control" @bind-Value="State.DatiAziendali.CodiceSDI" />
                         </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Link drive</label>
+                            <br/>
+                            <a>https://drive.google.com/drive/folders/1UbPlHvRydqpidxhfNLv28jcxShEVgOxO?usp=sharing</a>
+                        </div>
                         <div class="col-md-12">
                             <label class="form-label text-muted small">Coordinate Bancarie (IBAN)</label>
                             <InputText class="form-control" @bind-Value="State.DatiAziendali.IBAN" />
@@ -111,6 +116,7 @@
             State.DatiAziendali.PEC = "saporediromagna.srl@gmail.com";
             State.DatiAziendali.CodiceSDI = "4SUS67F";
             State.DatiAziendali.IBAN = "IT02A0123451234512345678901";
+            State.DatiAziendali.LinkDrive = "https://drive.google.com/drive/folders/1UbPlHvRydqpidxhfNLv28jcxShEVgOxO?usp=sharing";
         }
     }
 

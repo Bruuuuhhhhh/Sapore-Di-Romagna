@@ -114,6 +114,7 @@ public class DatiAzienda
     public string PEC { get; set; } = "saporediromagna.srl@gmail.com";
     public string CodiceSDI { get; set; } = "4SUS67F";
     public string CapitaleSociale { get; set; } = "€ 10.000,00 i.v.";
+    public string LinkDrive {get; set; } = "https://drive.google.com/drive/folders/1UbPlHvRydqpidxhfNLv28jcxShEVgOxO?usp=sharing";
 }
 
 public class AppState
@@ -353,6 +354,7 @@ public class AppState
         Documenti.Add(new Documento { NumeroDocumento = "1", Data = new DateTime(2026, 04, 04), TipoDocumento = DocumentType.FatturaImmediata, PartnerId = Partners[0].Id, IsAcquisto = false, TotaleFattura = new decimal(233.70), UploadedFileName="Fattura Cena Naturalia.pdf" });
         Documenti.Add(new Documento { NumeroDocumento = "2", Data = new DateTime(2026, 04, 17), TipoDocumento = DocumentType.FatturaImmediata, PartnerId = Partners[1].Id, IsAcquisto = false, TotaleFattura = new decimal(379.39), UploadedFileName="Fattura Cena La Fabbrica del Gusto.pdf" });
         Documenti.Add(new Documento { NumeroDocumento = "3", Data = new DateTime(2026, 04, 13), TipoDocumento = DocumentType.FatturaImmediata, PartnerId = Partners[3].Id, IsAcquisto = false, TotaleFattura = new decimal(1235.52), UploadedFileName="Fattura Cena Hermes.pdf" });
+        Documenti.Add(new Documento { NumeroDocumento = "4", Data = new DateTime(2026, 04, 08), TipoDocumento = DocumentType.FatturaImmediata, PartnerId = Partners[0].Id, IsAcquisto = true, TotaleFattura = new decimal(38.22), UploadedFileName="FATTURA PER RISTORAZIONE naturalia.pdf" });
         
     }
 
