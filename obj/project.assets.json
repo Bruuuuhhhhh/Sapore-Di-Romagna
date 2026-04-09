@@ -45,19 +45,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aless\\.nuget\\packages\\": {}
+    "C:\\Users\\alessandro.crepaldi\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aless\\Downloads\\sapore-di-romagna\\sapore-di-romagna\\SaporeDiRomagna.csproj",
+      "projectUniqueName": "C:\\Users\\alessandro.crepaldi\\Desktop\\aah\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj",
       "projectName": "SaporeDiRomagna",
-      "projectPath": "C:\\Users\\aless\\Downloads\\sapore-di-romagna\\sapore-di-romagna\\SaporeDiRomagna.csproj",
-      "packagesPath": "C:\\Users\\aless\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aless\\Downloads\\sapore-di-romagna\\sapore-di-romagna\\obj\\",
+      "projectPath": "C:\\Users\\alessandro.crepaldi\\Desktop\\aah\\Sapore-Di-Romagna\\SaporeDiRomagna.csproj",
+      "packagesPath": "C:\\Users\\alessandro.crepaldi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alessandro.crepaldi\\Desktop\\aah\\Sapore-Di-Romagna\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\aless\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alessandro.crepaldi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -65,6 +70,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

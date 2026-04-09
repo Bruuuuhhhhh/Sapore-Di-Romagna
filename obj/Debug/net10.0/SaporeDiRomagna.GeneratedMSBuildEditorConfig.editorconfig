@@ -11,89 +11,89 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SaporeDiRomagna
 build_property.RootNamespace = SaporeDiRomagna
-build_property.ProjectDir = C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna\
+build_property.ProjectDir = C:\Users\alessandro.crepaldi\Desktop\aah\Sapore-Di-Romagna\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\aless\Downloads\sapore-di-romagna\sapore-di-romagna
+build_property.MSBuildProjectDirectory = C:\Users\alessandro.crepaldi\Desktop\aah\Sapore-Di-Romagna
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/App.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/Calendario.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/Calendario.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYWxlbmRhcmlvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/CompilazioneDocumenti.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/CompilazioneDocumenti.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb21waWxhemlvbmVEb2N1bWVudGkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/Counter.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/DatiSocietari.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/DatiSocietari.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXRpU29jaWV0YXJpLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/Dispensa.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/Dispensa.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEaXNwZW5zYS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/Error.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/GestionePartner.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/GestionePartner.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHZXN0aW9uZVBhcnRuZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/Home.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/Login.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/MenuRistorante.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/MenuRistorante.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNZW51UmlzdG9yYW50ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/NotFound.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/NotFound.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOb3RGb3VuZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/Registro.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/Registro.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3Ryby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Pages/Weather.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Routes.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/_Imports.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Layout/MainLayout.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-617njkw5j2
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Layout/NavMenu.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-yr2rh1yw28
 
-[C:/Users/aless/Downloads/sapore-di-romagna/sapore-di-romagna/Components/Layout/ReconnectModal.razor]
+[C:/Users/alessandro.crepaldi/Desktop/aah/Sapore-Di-Romagna/Components/Layout/ReconnectModal.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcUmVjb25uZWN0TW9kYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-9faf3yrf4y
